@@ -4,8 +4,8 @@
 export const SITE_TITLE = `RamoSites`;
 export const SITE_DESCRIPTION = `Build a home that's Yours`;
 
-export const LINKS = [
-    { name: 'Home', href: '/' },
-    { name: 'Survey', href: '/' },
-    { name: 'Email', href: '/' }
-];
+export const LINKS = {
+	survey: "#",
+	email: "#",
+	ramo: "https://theramoshe.com",
+};

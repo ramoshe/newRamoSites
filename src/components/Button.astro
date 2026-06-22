@@ -1,0 +1,22 @@
+---
+interface Props {
+   text: string,
+   link: string,
+   classList?: string
+}
+
+const { text, link, classList, ...rest } = Astro.props;
+---
+<a href={link}
+   class:list={['btn', classList]}
+   {...rest}
+>
+   {text}
+</a>
+
+<style>
+   .btn {
+      background-color: lightblue;
+      padding: var(--size-3) var(--size-6);
+   }
+</style>

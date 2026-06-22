@@ -1,9 +1,59 @@
 ---
 interface Props {
-   data: { html?: string };
+   data: {
+      heading1: string,
+      body1: string,
+      heading2: string,
+      subheading2: string,
+      body2: string
+   };
 }
 
 const { data } = Astro.props as Props;
 ---
+<section class="split-content" id="pain">
+   <div class="half first-half">
+      <h3>{data.heading1}</h3>
+      <div class="socialVisual">
+         <!-- TODO add visual with social icons floating -->
+      </div>
+      <p>{data.body1}</p>
+   </div>
+   <div class="half second-half">
+      <h2>{data.heading2}</h2>
+      <h3>{data.subheading2}</h3>
+      <p>{data.body2}</p>
+   </div>
+</section>
 
-<Fragment set:html={data && data.html} />
+<style>
+   .split-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      justify-content: center;
+      align-items: center;
+      margin-block: var(--size-10);
+   }
+   .half {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      inline-size: 100%;
+      block-size: 100%;
+      padding: var(--size-7);
+   }
+   .first-half {
+      justify-content: space-between;
+      text-align: center;
+   }
+   .second-half {
+      justify-content: center;
+      background-color: lightgray;
+   }
+   .socialVisual {
+      border: 7px solid lightseagreen;
+      inline-size: 70%;
+      aspect-ratio: 1;
+      margin-block: 10%;
+   }
+</style>

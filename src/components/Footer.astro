@@ -1,0 +1,44 @@
+---
+import { LINKS } from '../content/consts';
+---
+
+<footer class="thirds">
+   <div class="title | first-third">
+      <h4 class="site-title">Build a Home That's Yours</h4>
+   </div>
+   <div class="signoff | middle-third">
+      <p class="thanks">Thanks for helping shape what comes next.</p>
+      <a href={LINKS.ramo} target="_blank">♡, Ramo</a>
+   </div>
+   <div class="copyright | last-third">
+      <p>&copy; 2026</p>
+      <p>theRamoShe LLC</p>
+      <p>All Rights Reserved</p>
+   </div>
+</footer>
+
+<style>
+   .thirds {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr 1fr;
+   }
+   footer {
+      width: 100%;
+      background-color: gray;
+      margin-block-start: var(--size-11);
+      padding: var(--size-7);
+      padding-block-end: var(--size-10);
+   }
+   .middle-third {
+      text-align: center;
+   }
+   .last-third {
+      text-align: end;
+   }
+   .site-title {
+      max-width: 12ch;
+   }
+   .thanks {
+      text-wrap: balance;
+   }
+</style>

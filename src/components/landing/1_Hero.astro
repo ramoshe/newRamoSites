@@ -1,9 +1,71 @@
 ---
+import Header from '../Header.astro';
+import Button from '../Button.astro';
+import { YouTube } from 'astro-embed';
+import { LINKS } from '../../content/consts.ts';
+
 interface Props {
-   data: { html?: string };
+   data: {
+      heading: string,
+      attention: string,
+      subheading: string,
+      tagline: string,
+      videoURL: string,
+      videoText: string,
+      ctaLink: string,
+      ctaText: string
+   };
 }
 
 const { data } = Astro.props as Props;
 ---
 
-<Fragment set:html={data && data.html} />
+<Header />
+
+<section class="hero">
+
+   <div class="hero_content | half first-half">
+      <h1 class="hero_head">{data.heading}</h1>
+      <p class="hero_attn">{data.attention}</p>
+      <h2 class="hero_sbhead">{data.subheading}</h2>
+      <p class="hero_tag">{data.tagline}</p>
+   </div>
+
+   <div class="hero_video | half second-half">
+      <p class="video_text">{data.videoText}</p>
+      <div class="video_embed">
+         <YouTube id={data.videoURL} />
+      </div>
+   </div>
+
+</section>
+
+<section class="cta" id="first-cta">
+
+   <Button text={data.ctaLink} link={LINKS.survey} classList="cta_btn btn btn-large" />
+   <p class="cta_text">{data.ctaText}</p>
+
+</section>
+
+<style>
+   .hero {
+      display: grid;
+      align-items: center;
+      grid-template-columns: 1fr 1fr;
+      inline-size: 100%;
+      gap: var(--size-7);
+      border: 2px solid lightgray;
+      padding: var(--size-7);
+   }
+   .hero_content {
+      display: flex;
+      flex-direction: column;
+   }
+   .cta {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: var(--size-7);
+      padding: var(--size-fluid-6);
+   }
+</style>

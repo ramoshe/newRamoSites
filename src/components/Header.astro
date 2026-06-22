@@ -1,0 +1,28 @@
+---
+import { Picture } from 'astro:assets';
+import LogoDK from '../assets/ramoLogoDark.svg';
+import LogoLT from '../assets/ramoLogoLight.svg';
+---
+
+<header>
+   <div class="logo">
+      <LogoDK class="dark-logo" />
+      <LogoLT class="light-logo" style="display:none;" />
+   </div>
+   <div class="themer">
+      <form id="theme">
+         <label>Auto <input type="radio" name="theme" value="auto" checked></label>
+         <label>Light <input type="radio" name="theme" value="light"></label>
+         <label>Dark <input type="radio" name="theme" value="dark"></label>
+       </form>
+   </div>
+</header>
+
+<style>
+   header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-block: var(--size-3);
+   }
+</style>

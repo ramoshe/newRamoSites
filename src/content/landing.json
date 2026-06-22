@@ -4,7 +4,7 @@
 		"attention": "For streamers, artists, musicians, makers, educators, and creators.",
 		"subheading": "Stop renting your audience.",
 		"tagline": "Own your content. Build your community. Escape the algorithm goblins.",
-		"videoURL": "",
+		"videoURL": "https://youtu.be/_PEv9VeWtmY?si=QY1UZq_pegeSFbN_",
 		"videoText": "Prefer audio? Here's the 3-minute version.",
 		"ctaLink": "I'm Interested",
 		"ctaText": "Take the survey or get email updates."
@@ -17,19 +17,74 @@
 		"body2": "10,000 followers sounds impressive…but if you can't reach them tomorrow without asking a platform for permission, do you really own that audience?"
    },
    "compare": {
-		"html": "<h2>The Philosophy Shift</h2>",
-		"": ""
+		"platform": {
+			"heading": "Platform Life = Problems",
+			"rows": [
+				{
+					"point": "Borrowed Audience",
+					"words": " lives on their platform"
+				},
+				{
+					"point": "Scattered Content",
+					"words": " increases time and effort"
+				},
+				{
+					"point": "Dependent",
+					"words": " on algorithms to be seen and grow"
+				},
+				{ "point": "Transience", "words": " will always be the game" },
+				{
+					"point": "Their Rules",
+					"words": " can change and wipe out your work"
+				}
+			],
+			"bottom": "You don't own your audience. You're just borrowing access to it. And your content is feeding their growth as much as, if not more than yours."
+		},
+		"creator": {
+			"heading": "Creator Home = Solutions",
+			"rows": [
+				{
+					"point": "Owned Audience",
+					"words": " lives on your platform"
+				},
+				{
+					"point": "Organized Content",
+					"words": " is easy to find in one place"
+				},
+				{
+					"point": "Available",
+					"words": " so your people can always find you"
+				},
+				{
+					"point": "Permanence",
+					"words": " can be had and built upon"
+				},
+				{ "point": "Your Rules", "words": " enable control and growth" }
+			],
+			"bottom": "The goal isn't replacing social media, its not another profile or link page. It's building something that's truly yours no matter which way the wind blows."
+		}
    },
    "founder": {
-		"html": "<br /><h3>Hi, I'm Ramo</h3>",
-		"": ""
+		"body": [
+			"I'm a creator too.",
+			"I've spent years watching artists, streamers, musicians, and entrepreneurs pour energy into platforms they don't control.",
+			"The tools I've found are often too limiting, too expensive, too complicated, or simply not designed with creators in mind.",
+			"So I'm building something different."
+		]
    },
    "vision": {
-		"html": "<h3>I'm Building Something for Creators Like Us</h3>",
-		"": ""
+		"heading": "I'm Building Something for Creators Like Us",
+		"body1": "I'm researching a better way for creators to build websites that are flexible, affordable, and actually feel like their own.",
+		"body2": "If that sounds interesting, I'd love your input."
    },
    "action": {
-		"html": "<br /><h2 style='border:2px solid gray'>Take the Survey or Join the Email List</h2>",
-		"": ""
+		"survey": {
+			"buttonText": "Survey",
+			"description": "Let your voice be heard and shape the project"
+		},
+		"email": {
+			"buttonText": "Email",
+			"description": "Get updates as things develop and first access"
+		}
    }
 }

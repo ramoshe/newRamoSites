@@ -1,9 +1,36 @@
 ---
 interface Props {
-   data: { html?: string };
+   data: {
+      heading: string,
+      body1: string,
+      body2: string
+   };
 }
 
 const { data } = Astro.props as Props;
 ---
 
-<Fragment set:html={data && data.html} />
+<section class="vision" id="vision">
+   <h2>{data.heading}</h2>
+   <p>{data.body1}</p>
+   <div class="diagram">
+      <!-- TODO create diagram of centralized home -->
+   </div>
+   <p>{data.body2}</p>
+</section>
+
+<style>
+.vision {
+   display: flex;
+   flex-direction: column;
+   justiify-content: center;
+   align-items: center;
+   text-align: center;
+}
+.diagram {
+   border: 7px solid lightseagreen;
+   inline-size: 70%;
+   block-size: 100%;
+   aspect-ratio: 16/9;
+}
+</style>

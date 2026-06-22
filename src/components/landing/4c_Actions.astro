@@ -1,9 +1,37 @@
 ---
+import Button from '../Button.astro';
+
+import { LINKS } from '../../content/consts.ts';
+
 interface Props {
-   data: { html?: string };
+   data: {
+      survey: {
+         buttonText: string,
+         description: string
+      }
+      email: {
+         buttonText: string,
+         description: string
+      }
+   };
 }
 
 const { data } = Astro.props as Props;
 ---
 
-<Fragment set:html={data && data.html} />
+<section class="cta main-cta split-content">
+   <div class="half first-half">
+      <Button text={data.survey.buttonText} link={LINKS.survey} />
+      <p>{data.survey.description}</p>
+   </div>
+   <div class="half second-half">
+      <Button text={data.email.buttonText} link={LINKS.email} />
+      <p>{data.email.description}</p>
+   </div>
+</section>
+
+<style>
+   .cta {
+      margin-block: var(--size-10);
+   }
+</style>

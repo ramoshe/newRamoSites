@@ -1,9 +1,28 @@
 ---
 interface Props {
-   data: { html?: string };
+   data: {
+      platform: {
+         heading: string,
+         rows: Array<{ point: string, words: string }>,
+         bottom: string
+      },
+      creator: {
+         heading: string,
+         rows: Array<{ point: string, words: string }>,
+         bottom: string
+      }
+   };
 }
 
 const { data } = Astro.props as Props;
 ---
 
-<Fragment set:html={data && data.html} />
+<section class="compare-section split-content">
+   {Object.values(data).map(comp => (
+   <div class="compare half">
+      <h2>{comp.heading}</h2>
+      {comp.rows.map(row => <p><strong>{row.point}</strong> {row.words}</p>)}
+      <p>{comp.bottom}</p>
+   </div>
+   ))}
+</section>

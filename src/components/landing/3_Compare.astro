@@ -1,16 +1,14 @@
 ---
+type compItem = {
+   title: string,
+   heading: string,
+   rows: Array<{ point: string, words: string }>,
+   bottom: string
+}
 interface Props {
    data: {
-      platform: {
-         heading: string,
-         rows: Array<{ point: string, words: string }>,
-         bottom: string
-      },
-      creator: {
-         heading: string,
-         rows: Array<{ point: string, words: string }>,
-         bottom: string
-      }
+      platform: compItem,
+      creator: compItem
    };
 }
 
@@ -20,9 +18,18 @@ const { data } = Astro.props as Props;
 <section class="compare-section split-content">
    {Object.values(data).map(comp => (
    <div class="compare half">
-      <h2>{comp.heading}</h2>
+      <h2>{comp.title}</h2>
+      <h3>{comp.heading}</h3>
       {comp.rows.map(row => <p><strong>{row.point}</strong> {row.words}</p>)}
       <p>{comp.bottom}</p>
    </div>
    ))}
 </section>
+
+<style>
+   .compare > * + * {
+      border-top: 2px solid lightgray;
+      width: 100%;
+      text-align: start;
+   }
+</style>

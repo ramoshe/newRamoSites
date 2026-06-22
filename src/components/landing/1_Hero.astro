@@ -6,14 +6,9 @@ import { LINKS } from '../../content/consts.ts';
 
 interface Props {
    data: {
-      heading: string,
-      attention: string,
-      subheading: string,
-      tagline: string,
-      videoURL: string,
-      videoText: string,
-      ctaLink: string,
-      ctaText: string
+      copy: { heading: string, attention: string, subheading: string, tagline: string },
+      video: {url: string, caption: string,},
+      cta: {link: string, text: string}
    };
 }
 
@@ -25,16 +20,16 @@ const { data } = Astro.props as Props;
 <section class="hero">
 
    <div class="hero_content | half first-half">
-      <h1 class="hero_head">{data.heading}</h1>
-      <p class="hero_attn">{data.attention}</p>
-      <h2 class="hero_sbhead">{data.subheading}</h2>
-      <p class="hero_tag">{data.tagline}</p>
+      <h1 class="hero_head">{data.copy.heading}</h1>
+      <p class="hero_attn">{data.copy.attention}</p>
+      <h2 class="hero_sbhead">{data.copy.subheading}</h2>
+      <p class="hero_tag">{data.copy.tagline}</p>
    </div>
 
    <div class="hero_video | half second-half">
-      <p class="video_text">{data.videoText}</p>
+      <p class="video_text">{data.video.caption}</p>
       <div class="video_embed">
-         <YouTube id={data.videoURL} />
+         <YouTube id={data.video.url} />
       </div>
    </div>
 
@@ -42,8 +37,8 @@ const { data } = Astro.props as Props;
 
 <section class="cta" id="first-cta">
 
-   <Button text={data.ctaLink} link={LINKS.survey} classList="cta_btn btn btn-large" />
-   <p class="cta_text">{data.ctaText}</p>
+   <Button text={data.cta.link} link={LINKS.survey} classList="cta_btn btn btn-large" />
+   <p class="cta_text">{data.cta.text}</p>
 
 </section>
 
@@ -71,6 +66,6 @@ const { data } = Astro.props as Props;
    }
    .video_embed {
       inline-size: 100%;
-      aspect-ratio: 16/9:
+      aspect-ratio: 16/9;
    }
 </style>

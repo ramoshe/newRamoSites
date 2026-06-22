@@ -1,24 +1,35 @@
 {
    "hero": {
-		"heading": "Build a home that's Yours",
-		"attention": "For streamers, artists, musicians, makers, educators, and creators.",
-		"subheading": "Stop renting your audience.",
-		"tagline": "Own your content. Build your community. Escape the algorithm goblins.",
-		"videoURL": "https://youtu.be/_PEv9VeWtmY?si=QY1UZq_pegeSFbN_",
-		"videoText": "Prefer audio? Here's the 3-minute version.",
-		"ctaLink": "I'm Interested",
-		"ctaText": "Take the survey or get email updates."
+		"copy": {
+			"heading": "Build a home that's Yours",
+			"attention": "For streamers, artists, musicians, makers, educators, and creators.",
+			"subheading": "Stop renting your audience.",
+			"tagline": "Own your content. Build your community. Escape the algorithm goblins."
+		},
+		"video": {
+			"url": "https://youtu.be/_PEv9VeWtmY?si=QY1UZq_pegeSFbN_",
+			"caption": "Prefer audio? Here's the 3-minute version."
+		},
+		"cta": {
+			"link": "I'm Interested",
+			"text": "Take the survey or get email updates."
+		}
    },
    "pain": {
-		"heading1": "You're Everywhere But Home",
-		"body1": "Most creators are juggling platforms instead of building a foundation.",
-		"heading2": "Followers Are Not Ownership",
-		"subheading2": "Algorithms change. Platforms disappear. Accounts get suspended.",
-		"body2": "10,000 followers sounds impressive…but if you can't reach them tomorrow without asking a platform for permission, do you really own that audience?"
+		"visual": {
+			"heading": "You're Everywhere But Home",
+			"body": "Most creators are juggling platforms instead of building a foundation."
+		},
+		"copy": {
+			"heading": "Followers Are Not Ownership",
+			"subheading": "Algorithms change. Platforms disappear. Accounts get suspended.",
+			"body": "10,000 followers sounds impressive…but if you can't reach them tomorrow without asking a platform for permission, do you really own that audience?"
+		}
    },
    "compare": {
 		"platform": {
-			"heading": "Platform Life = Problems",
+			"title": "Problems",
+			"heading": "Platform Life",
 			"rows": [
 				{
 					"point": "Borrowed Audience",
@@ -41,7 +52,8 @@
 			"bottom": "You don't own your audience. You're just borrowing access to it. And your content is feeding their growth as much as, if not more than yours."
 		},
 		"creator": {
-			"heading": "Creator Home = Solutions",
+			"title": "Solutions",
+			"heading": "Creator Home",
 			"rows": [
 				{
 					"point": "Owned Audience",
@@ -74,8 +86,10 @@
    },
    "vision": {
 		"heading": "I'm Building Something for Creators Like Us",
-		"body1": "I'm researching a better way for creators to build websites that are flexible, affordable, and actually feel like their own.",
-		"body2": "If that sounds interesting, I'd love your input."
+		"body": [
+			"I'm researching a better way for creators to build websites that are flexible, affordable, and actually feel like their own.",
+			"If that sounds interesting, I'd love your input."
+		]
    },
    "action": {
 		"survey": {

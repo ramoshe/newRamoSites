@@ -1,11 +1,13 @@
 ---
+type splitSection = {
+   heading: string,
+   subheading?: string,
+   body: string
+}
 interface Props {
    data: {
-      heading1: string,
-      body1: string,
-      heading2: string,
-      subheading2: string,
-      body2: string
+      visual: splitSection,
+      copy: splitSection
    };
 }
 
@@ -13,16 +15,16 @@ const { data } = Astro.props as Props;
 ---
 <section class="split-content" id="pain">
    <div class="half first-half">
-      <h3>{data.heading1}</h3>
+      <h3>{data.visual.heading}</h3>
       <div class="socialVisual">
          <!-- TODO add visual with social icons floating -->
       </div>
-      <p>{data.body1}</p>
+      <p>{data.visual.body}</p>
    </div>
    <div class="half second-half">
-      <h2>{data.heading2}</h2>
-      <h3>{data.subheading2}</h3>
-      <p>{data.body2}</p>
+      <h2>{data.copy.heading}</h2>
+      <h3>{data.copy.subheading}</h3>
+      <p>{data.copy.body}</p>
    </div>
 </section>
 

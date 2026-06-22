@@ -15,7 +15,7 @@
 		"html": "<h3>I'm Building Something for Creators Like Us</h3>"
    },
    "action": {
-		"html": "<h2>Take the Survey or Join the Email List</h2>"
+		"html": "<br /><h2 style='border:2px solid gray'>Take the Survey or Join the Email List</h2>"
    },
    "footer": {
 		"html": "<hr /><h4>Thank You</h4>"

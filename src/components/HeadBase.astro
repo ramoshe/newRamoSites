@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import { Font } from 'astro:assets';
 
 interface Props {
    title: string;
@@ -14,6 +15,8 @@ const { title, description } = Astro.props;
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="icon" href="/favicon.ico" />
+
+<Font cssVariable="--font-nunito" />
 
 <meta name="generator" content={Astro.generator} />
 

@@ -1,0 +1,23 @@
+{
+   "hero": {
+      "html": "<h1>Build a home that's Yours</h1>"
+   },
+   "pain": {
+      "html": "<h2>The Pain We Feel</h2>"
+   },
+   "compare": {
+      "html": "<h2>The Philosophy Shift</h2>"
+   },
+   "founder": {
+		"html": "<br /><h3>Hi, I'm Ramo</h3>"
+   },
+   "vision": {
+		"html": "<h3>I'm Building Something for Creators Like Us</h3>"
+   },
+   "action": {
+		"html": "<h2>Take the Survey or Join the Email List</h2>"
+   },
+   "footer": {
+		"html": "<hr /><h4>Thank You</h4>"
+   }
+}

@@ -1,17 +1,23 @@
 ---
+import MainLay from '../layouts/MainLay.astro'
+import Hero from '../components/landing/1_Hero.astro';
+import Pain from '../components/landing/2_Pain.astro';
+import Compare from '../components/landing/3_Compare.astro';
+import Founder from '../components/landing/4a_Founder.astro';
+import Vision from '../components/landing/4b_Vision.astro';
+import Action from '../components/landing/4c_Actions.astro';
+import Footer from '../components/landing/5_Footer.astro';
 
+import data from '../content/landing.json';
+import { SITE_TITLE } from '../content/consts.ts'
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<MainLay title={SITE_TITLE} description="Welcome to the homepage">
+   <Hero data={data.hero} />
+   <Pain data={data.pain} />
+   <Compare data={data.compare} />
+   <Founder data={data.founder} />
+   <Vision data={data.vision} />
+   <Action data={data.action} />
+   <Footer data={data.footer} />
+</MainLay>

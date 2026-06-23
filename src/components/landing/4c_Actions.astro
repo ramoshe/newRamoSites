@@ -28,7 +28,10 @@ const { data } = Astro.props as Props;
    <div class="flex-col flow">
       <p>{data.email.description}</p>
       <Icon name="tabler:arrow-big-down-line" class="icon" />
-      <Button text={data.email.buttonText} link={LINKS.email} />
+      <Button text={data.email.buttonText} link='#cta' id="email-form-btn" />
+      <div class="email-form">
+         <script async data-uid="4357918fec" src="https://theramoshe.kit.com/4357918fec/index.js"></script>
+      </div>
    </div>
 </section>
 
@@ -42,4 +45,14 @@ const { data } = Astro.props as Props;
       font-size: 140%;
       color: var(--text-0);
    }
+   .email-form {
+      display: none;
+   }
 </style>
+<script>
+   const emailForm = document.querySelector('.email-form') as HTMLElement;
+   const formBtn = document.querySelector('#email-form-btn') as HTMLElement;
+   formBtn?.addEventListener('click', () => {
+      emailForm.style.display = emailForm.style.display === "none" ? "block" : "none";
+   });
+</script>

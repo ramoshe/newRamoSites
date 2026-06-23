@@ -2,13 +2,15 @@
 interface Props {
    text: string,
    link: string,
+   id?:string,
    classList?: string
 }
 
-const { text, link, classList, ...rest } = Astro.props;
+const { text, link, id, classList, ...rest } = Astro.props;
 ---
 <a href={link}
    class:list={['btn', classList]}
+   id={id}
    {...rest}
 >
    {text}

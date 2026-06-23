@@ -15,7 +15,7 @@ interface Props {
 const { data } = Astro.props as Props;
 ---
 
-<section class="compare | split-content | section-pad">
+<section class="compare | grid-wrap | section-pad">
    {Object.values(data).map(comp => (
    <div class:list={['comp', comp.title.toLocaleLowerCase()]}>
       <div class="comp_head flex-row">
@@ -39,6 +39,7 @@ const { data } = Astro.props as Props;
       background-color: var(--page-1);
       text-align: center;
       align-items: start;
+      gap: 0;
    }
    .comp_row {
       border: var(--border-size-1) solid var(--text-2);

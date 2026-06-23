@@ -1,6 +1,8 @@
 ---
 import '../styles/global.css';
 
+import { Analytics } from '@arraypress/analytics-astro'
+
 interface Props {
    title: string;
    description: string;
@@ -20,3 +22,7 @@ const { title, description } = Astro.props;
 <title>{title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
+
+<Analytics providers={[
+   {type: 'umami', websiteId: 'c1d8f493-457e-4344-baa0-e876c2aff61a', }
+]} />

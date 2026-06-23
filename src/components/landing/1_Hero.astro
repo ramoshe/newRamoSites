@@ -1,8 +1,9 @@
 ---
 import Header from '../Header.astro';
 import Button from '../Button.astro';
+
+import { Icon } from 'astro-icon/components';
 import { YouTube } from 'astro-embed';
-import { LINKS } from '../../content/consts.ts';
 
 interface Props {
    data: {
@@ -41,7 +42,8 @@ const { data } = Astro.props as Props;
 
 <section class="cta | section-pad" id="first-cta">
 
-   <Button text={data.cta.link} link={LINKS.survey} classList="cta_btn btn btn-large" />
+   <Button text={data.cta.link} link="#vision" classList="cta_btn btn btn-large" />
+   <Icon name="tabler:arrow-big-right-line" class="icon" />
    <p class="cta_text">{data.cta.text}</p>
 
 </section>

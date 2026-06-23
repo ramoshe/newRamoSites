@@ -13,34 +13,35 @@ interface Props {
 
 const { data } = Astro.props as Props;
 ---
-<section class="split-content" id="pain">
-   <div class="half first-half">
-      <h3>{data.visual.heading}</h3>
-      <div class="socialVisual">
-         <!-- TODO add visual with social icons floating -->
-      </div>
-      <p>{data.visual.body}</p>
-   </div>
-   <div class="half second-half">
+<section id="pain" class="split-content | section-pad">
+   <div class="copy | half | flow">
       <h2>{data.copy.heading}</h2>
       <h3>{data.copy.subheading}</h3>
       <p>{data.copy.body}</p>
    </div>
+   <div class="visual | half">
+      <h3>{data.visual.heading}</h3>
+      <div class="socialVisual placeholder">
+         <!-- TODO add visual with social icons floating -->
+      </div>
+      <p>{data.visual.body}</p>
+   </div>
 </section>
 
 <style>
-   .first-half {
+   .split-content {
+      /* grid-template-columns: 1fr 1.5fr; */
+      gap: var(--size-7);
+   }
+   .copy {
+      text-align: center;
+   }
+   .visual {
       justify-content: space-between;
       text-align: center;
    }
-   .second-half {
-      justify-content: center;
-      background-color: lightgray;
-   }
    .socialVisual {
-      border: 7px solid lightseagreen;
-      inline-size: 70%;
-      aspect-ratio: 1;
-      margin-block: 10%;
+      inline-size: 100%;
+      aspect-ratio: 16/9;
    }
 </style>

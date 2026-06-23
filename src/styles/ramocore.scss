@@ -1,27 +1,56 @@
-.split-content {
-   display: grid;
-   grid-template-columns: 1fr 1fr;
+:root {
+   --fluid-padi-marg: max(((100% - 70rem) / 2), var(--size-fluid-7));
+}
+section, .page-wide {
+   width: 100%;
+   padding-inline: var(--fluid-padi-marg);
+}
+
+.flow > * + * {
+   margin-top: var(--flow-space, var(--size-7));
+ }
+
+.flex-row {
+   display: flex;
    justify-content: center;
    align-items: center;
-   margin-block: var(--size-10);
+   gap: var(--size-3);
 }
-.half {
+.flex-col, .half {
    display: flex;
    flex-direction: column;
+   justify-content: center;
    align-items: center;
    inline-size: 100%;
    block-size: 100%;
 }
 
+.section-pad {
+   padding-block: var(--fluid-padi-marg);
+}
+
+.split-content {
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   justify-content: center;
+   align-items: center;
+}
+
+.grid-thirds {
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr;
+   justify-content: center;
+   align-items: center;
+   gap: var(--size-7);
+}
+
 // COMPOSITION
-//   .container
 //   .flow
-//   .stack
-//   .cluster
-//   .grid
-//   .sidebar
-//   .center
-//   .cover
+//   .grid-halves (.split-content)
+//   .grid-thirds
+//   .flex-col
+//   .flex-row
+//   .center-tainer
 
 // UTILITIES
 //   spacing helpers like .max-width-content
@@ -36,6 +65,7 @@
 //   .cta-banner
 //   .feature-grid
 
-// 5. Theme Hooks
-//   [data-theme]
-//   theme variable overrides
+.placeholder {
+   border: var(--border-size-4) solid var(--brand-pp);
+   background-color: var(--page-1);
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs>
+<style>
+   .heptagon { fill: var(--text); }
+   .teal { fill: #268184; }
+   .copper {  fill: #ab6336;  }
+   .gold {  fill: #d7a03a; }
+   .inner { opacity: .35; }
+</style></defs>
+<polygon class="heptagon" points="500 0 99.03 198.06 0 643.1 277.48 1000 722.52 1000 1000 643.1 900.97 198.06 500 0"/>
+   <path class="teal diamond" d="M500,203.23l270.97,135.48-270.97,135.48-270.97-135.48,270.97-135.48ZM500,150.54L123.66,338.71l376.34,188.17,376.34-188.17-376.34-188.17Z"/>
+      <polygon class="teal inner" points="500 176.88 823.66 338.71 500 500.54 176.34 338.71 500 176.88"/>
+<circle class="gold circle" cx="797.31" cy="526.88" r="79.03"/>
+<polygon class="gold triangle" points="123.66 421.51 123.66 632.26 334.41 526.88 123.66 421.51"/>
+   <path class="copper diamond" d="M500,579.57l270.97,135.48-270.97,135.48-270.97-135.48,270.97-135.48ZM500,526.88l-376.34,188.17,376.34,188.17,376.34-188.17-376.34-188.17Z"/>
+      <polygon class="copper inner" points="500 553.23 823.66 715.05 500 876.88 176.34 715.05 500 553.23"/>
+</svg>

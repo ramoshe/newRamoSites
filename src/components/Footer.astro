@@ -2,8 +2,8 @@
 import { LINKS } from '../content/consts';
 ---
 
-<footer class="thirds">
-   <div class="title | first-third">
+<footer class="grid-thirds section-pad page-wide">
+   <div class="title | first-third fancy-font">
       <h4 class="site-title">Build a Home That's Yours</h4>
    </div>
    <div class="signoff | middle-third">
@@ -18,25 +18,22 @@ import { LINKS } from '../content/consts';
 </footer>
 
 <style>
-   .thirds {
-      display: grid;
-      grid-template-columns: 1fr 1.5fr 1fr;
-   }
+
    footer {
       width: 100%;
-      background-color: gray;
-      margin-block-start: var(--size-11);
-      padding: var(--size-7);
-      padding-block-end: var(--size-10);
+      background-color: var(--page-0);
    }
    .middle-third {
       text-align: center;
    }
    .last-third {
       text-align: end;
+      color: var(--second);
    }
    .site-title {
-      max-width: 12ch;
+      font-size: 200%;
+      text-wrap: balance;
+      color: var(--brand);
    }
    .thanks {
       text-wrap: balance;

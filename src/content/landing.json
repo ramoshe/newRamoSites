@@ -2,7 +2,7 @@
    "hero": {
 		"copy": {
 			"heading": "Build a home that's Yours",
-			"attention": "For streamers, artists, musicians, makers, educators, and creators.",
+			"attention": "For streamers, artists, musicians, makers, and creators.",
 			"subheading": "Stop renting your audience.",
 			"tagline": "Own your content. Build your community. Escape the algorithm goblins."
 		},
@@ -32,12 +32,12 @@
 			"heading": "Platform Life",
 			"rows": [
 				{
-					"point": "Borrowed Audience",
-					"words": " lives on their platform"
+					"point": "Borrowed",
+					"words": " audience lives on their platform"
 				},
 				{
-					"point": "Scattered Content",
-					"words": " increases time and effort"
+					"point": "Scattered",
+					"words": " content increases time and effort"
 				},
 				{
 					"point": "Dependent",
@@ -49,19 +49,19 @@
 					"words": " can change and wipe out your work"
 				}
 			],
-			"bottom": "You don't own your audience. You're just borrowing access to it. And your content is feeding their growth as much as, if not more than yours."
+			"bottom": "You don't own your community. You're just borrowing access to it. And your content is feeding their growth as much as, if not more than yours."
 		},
 		"creator": {
 			"title": "Solutions",
 			"heading": "Creator Home",
 			"rows": [
 				{
-					"point": "Owned Audience",
-					"words": " lives on your platform"
+					"point": "Owned",
+					"words": " audience lives on your platform"
 				},
 				{
-					"point": "Organized Content",
-					"words": " is easy to find in one place"
+					"point": "Organized",
+					"words": " content is easy to find in one place"
 				},
 				{
 					"point": "Available",
@@ -79,17 +79,15 @@
    "founder": {
 		"body": [
 			"I'm a creator too.",
-			"I've spent years watching artists, streamers, musicians, and entrepreneurs pour energy into platforms they don't control.",
+			"I've spent years watching streamers, artists, musicians, makers, and creators pour energy into platforms they don't control.",
 			"The tools I've found are often too limiting, too expensive, too complicated, or simply not designed with creators in mind.",
 			"So I'm building something different."
 		]
    },
    "vision": {
 		"heading": "I'm Building Something for Creators Like Us",
-		"body": [
-			"I'm researching a better way for creators to build websites that are flexible, affordable, and actually feel like their own.",
-			"If that sounds interesting, I'd love your input."
-		]
+		"body": "I'm researching a better way for creators to build websites that are flexible, affordable, and actually feel like their own.",
+		"call": "If that sounds interesting, I'd love your input."
    },
    "action": {
 		"survey": {

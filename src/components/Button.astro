@@ -16,7 +16,13 @@ const { text, link, classList, ...rest } = Astro.props;
 
 <style>
    .btn {
-      background-color: lightblue;
+      background-color: var(--accent);
+      color: var(--page);
       padding: var(--size-3) var(--size-6);
+      font-weight: var(--font-weight-7);
+   }
+   .btn-large{
+      padding: var(--size-4) var(--size-7);
+      font-size: var(--font-size-fluid-1)
    }
 </style>

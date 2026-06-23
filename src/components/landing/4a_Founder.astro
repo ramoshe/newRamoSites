@@ -6,23 +6,43 @@ interface Props {
 const { data } = Astro.props as Props;
 ---
 
-<section class="founder split-content">
-   <div class="half first-half">
+<section id="founder" class="section-pad">
+   <div class="hello">
       <!-- TODO replace with hand written title -->
-      <h2>Hi, I'm Ramo</h2>
-      {data.body.map(p => <p>{p}</p>)}
+      <h2 class="note-font" style="font-size: var(--font-size-fluid-3);">Hi, I'm Ramo</h2>
    </div>
-   <div class="half second-half">
-      <!-- TODO add image -->
-      <div class="photo"></div>
+   <div class="grid-thirds">
+      <div class="third first-third flow">
+         {data.body.slice(0, 2).map(p => <p>{p}</p>)}
+      </div>
+      <div class="third middle-third flow">
+         <!-- TODO add image -->
+         <div class="photo placeholder"></div>
+      </div>
+      <div class="third last-third flow">
+         {data.body.slice(2).map(p => <p>{p}</p>)}
+      </div>
    </div>
 </section>
 
 <style>
-.photo {
-   background-color: lightcoral;
-   inline-size: 100%;
-   max-inline-size: 300px;
-   block-size: 300px;
-}
+   #founder {
+      background-color: var(--page-0);
+   }
+   .hello {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-block-end: var(--size-7);
+   }
+   .photo {
+      inline-size: 100%;
+      max-inline-size: 300px;
+      block-size: 300px;
+   }
+   .last-third p:last-of-type {
+      font-family: var(--font-fancy);
+      font-size: 140%;
+      color: var(--brand-t)
+   }
 </style>

@@ -1,5 +1,6 @@
 ---
 import HeadBase from '../components/HeadBase.astro';
+import { Font } from 'astro:assets';
 
 interface Props {
    title: string;
@@ -11,26 +12,16 @@ const { title, description } = Astro.props as Props;
 <html lang="en">
 	<head>
 		<HeadBase title={title} description={description} />
+      <Font cssVariable="--font-base" />
+      <Font cssVariable="--font-fancy" />
+      <Font cssVariable="--font-note" />
 	</head>
+
 	<body>
+
       <main>
          <slot />
       </main>
+
 	</body>
 </html>
-
-<style>
-   body {
-      font-family: var(--font-nunito, sans-serif);
-   }
-   main {
-      margin-inline: max(((100% - 70rem) / 2), var(--size-fluid-7));
-   }
-
-/* BASE STYLES */
-   /* fonts */
-   /* colors */
-   /* body */
-   /* headings */
-   /* paragraphs */
-</style>

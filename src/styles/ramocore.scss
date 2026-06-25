@@ -19,6 +19,7 @@ section, .page-wide {
 
 .flex-row {
    display: flex;
+   flex-wrap: wrap;
    justify-content: center;
    align-items: center;
    gap: var(--size-3);
@@ -28,8 +29,7 @@ section, .page-wide {
    flex-direction: column;
    justify-content: center;
    align-items: center;
-   inline-size: 100%;
-   block-size: 100%;
+   // inline-size: 100%;
 }
 .grid-wrap, .split-content, .grid-thirds {
    display: grid;
@@ -56,4 +56,23 @@ section, .page-wide {
 .placeholder {
    border: var(--border-size-4) solid var(--brand-pp);
    background-color: var(--page-1);
+}
+
+// Ideas from ChatGPT
+.cluster {
+   display: flex;
+   flex-wrap: wrap;
+   gap: var(--size-3);
+   align-items: center;
+}
+.stack {
+   display: flex;
+   flex-direction: column;
+   gap: var(--size-3);
+}
+.split {
+   display: grid;
+   grid-template-columns:
+      repeat(auto-fit, minmax(300px, 1fr));
+   gap: var(--size-7);
 }

@@ -4,6 +4,7 @@
 @import 'open-props/postcss/normalize';
 
 @import './ramocore.scss';
+@import './graph.css';
 
 html {
    color: var(--text);

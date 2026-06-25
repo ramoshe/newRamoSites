@@ -1,0 +1,32 @@
+.graph-paper {
+   --grid-size: var(--size-3);
+   --grid-major-multiplier: 10;
+   --grid-major-offset: calc(var(--grid-size) * 5);
+
+   background-color: var(--page-0);
+   background-repeat: repeat;
+
+   background-image:
+      /* Major grid */
+      linear-gradient(var(--page-2) 2px, transparent 2px),
+      linear-gradient(90deg, var(--page-2) 2px, transparent 2px),
+      /* Minor grid */
+      linear-gradient(var(--page-1) 1px, transparent 1px),
+      linear-gradient(90deg, var(--page-1) 1px, transparent 1px);
+
+   background-size:
+      calc(var(--grid-size) * var(--grid-major-multiplier))
+      calc(var(--grid-size) * var(--grid-major-multiplier)),
+
+      calc(var(--grid-size) * var(--grid-major-multiplier))
+      calc(var(--grid-size) * var(--grid-major-multiplier)),
+
+      var(--grid-size) var(--grid-size),
+      var(--grid-size) var(--grid-size);
+
+   background-position:
+      var(--grid-major-offset) var(--grid-major-offset),
+      var(--grid-major-offset) var(--grid-major-offset),
+      0 0,
+      0 0;
+}

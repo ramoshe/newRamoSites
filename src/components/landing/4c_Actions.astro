@@ -19,16 +19,17 @@ interface Props {
 const { data } = Astro.props as Props;
 ---
 
-<section id="cta" class="split-content | section-pad">
-   <div class="flex-col flow">
+<section id="cta" class="flex-col section-pad graph-paper">
+   <div class="flex-row">
       <p>{data.survey.description}</p>
-      <Icon name="tabler:arrow-big-down-line" class="icon" />
+      <Icon name="tabler:arrow-big-right-line" class="icon" />
       <Button text={data.survey.buttonText} link={LINKS.survey} />
    </div>
-   <div class="flex-col flow">
-      <p>{data.email.description}</p>
-      <Icon name="tabler:arrow-big-down-line" class="icon" />
+   <div class="line"></div>
+   <div class="flex-row">
       <Button text={data.email.buttonText} link='#cta' id="email-form-btn" />
+      <Icon name="tabler:arrow-big-left-line" class="icon" />
+      <p>{data.email.description}</p>
       <div class="email-form">
          <script async data-uid="4357918fec" src="https://theramoshe.kit.com/4357918fec/index.js"></script>
       </div>
@@ -37,8 +38,13 @@ const { data } = Astro.props as Props;
 
 <style>
    #cta {
-      background-color: var(--page-2);
       text-align: center;
+      gap: var(--size-9);
+   }
+   .line {
+      height: var(--size-1);
+      width: 100%;
+      background-color: var(--text);
    }
    p {
       text-wrap: balance;
@@ -53,6 +59,7 @@ const { data } = Astro.props as Props;
    const emailForm = document.querySelector('.email-form') as HTMLElement;
    const formBtn = document.querySelector('#email-form-btn') as HTMLElement;
    formBtn?.addEventListener('click', () => {
-      emailForm.style.display = emailForm.style.display === "none" ? "block" : "none";
+      const current = window.getComputedStyle(emailForm).display;
+      emailForm.style.display = current === "none" ? "block" : "none";
    });
 </script>

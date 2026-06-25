@@ -1,4 +1,9 @@
 ---
+import Hello from '../../assets/hiRamo.svg';
+import Portrait from '../../assets/portrait.jpg';
+
+import { Image } from 'astro:assets';
+
 interface Props {
    data: { body: Array<string> };
 }
@@ -8,16 +13,14 @@ const { data } = Astro.props as Props;
 
 <section id="founder" class="section-pad">
    <div class="hello">
-      <!-- TODO replace with hand written title -->
-      <h2 class="note-font" style="font-size: var(--font-size-fluid-3);">Hi, I'm Ramo</h2>
+      <Hello />
    </div>
    <div class="grid-thirds">
       <div class="third first-third flow">
          {data.body.slice(0, 2).map(p => <p>{p}</p>)}
       </div>
       <div class="third middle-third flow">
-         <!-- TODO add image -->
-         <div class="photo placeholder"></div>
+         <Image src={Portrait} alt="Ramo's portrait" class="photo" />
       </div>
       <div class="third last-third flow">
          {data.body.slice(2).map(p => <p>{p}</p>)}
@@ -35,10 +38,14 @@ const { data } = Astro.props as Props;
       align-items: center;
       padding-block-end: var(--size-7);
    }
+   .hello svg {
+      fill: var(--second-t);
+   }
    .photo {
       inline-size: 100%;
       max-inline-size: 300px;
       block-size: 300px;
+      object-fit: cover;
    }
    .last-third p:last-of-type {
       font-family: var(--font-fancy);

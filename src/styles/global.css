@@ -1,5 +1,7 @@
 @import './resets.css';
 
+@import "open-props/media.min.css";
+
 @import 'open-props/postcss/style';
 @import 'open-props/postcss/normalize';
 

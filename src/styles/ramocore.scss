@@ -1,17 +1,10 @@
-
 //COMPOSITION
-   //.center-tainer
-
-:root {
-   --fluid-padi-marg: max(((100% - 70rem) / 2), var(--size-fluid-7));
-}
-
 .flow > * + * {
    margin-top: var(--flow-space, var(--size-7));
 }
 section, .page-wide {
    width: 100%;
-   padding-inline: var(--fluid-padi-marg);
+   padding-inline: max(((100% - 70rem) / 2), var(--size-3));
 }
 .section-pad {
    padding-block: var(--size-11);
@@ -24,14 +17,13 @@ section, .page-wide {
    align-items: center;
    gap: var(--size-3);
 }
-.flex-col, .half {
+.flex-col {
    display: flex;
    flex-direction: column;
    justify-content: center;
    align-items: center;
-   // inline-size: 100%;
 }
-.grid-wrap, .split-content, .grid-thirds {
+.grid-wrap, .grid-thirds {
    display: grid;
    grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
    justify-content: center;
@@ -58,7 +50,7 @@ section, .page-wide {
    background-color: var(--page-1);
 }
 
-// Ideas from ChatGPT
+// Ideas from ChatGPT to replace flex-row, flex-col, and grid-wrap
 .cluster {
    display: flex;
    flex-wrap: wrap;

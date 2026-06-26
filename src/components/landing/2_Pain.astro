@@ -13,13 +13,13 @@ interface Props {
 
 const { data } = Astro.props as Props;
 ---
-<section id="pain" class="split-content | section-pad">
-   <div class="copy | half | flow">
+<section id="pain" class="grid-wrap | section-pad">
+   <div class="copy | flow">
       <h2>{data.copy.heading}</h2>
       <h3>{data.copy.subheading}</h3>
       <p>{data.copy.body}</p>
    </div>
-   <div class="visual | half">
+   <div class="visual">
       <h3>{data.visual.heading}</h3>
       <div class="socialVisual placeholder">
          <!-- TODO add visual with social icons floating -->
@@ -29,10 +29,6 @@ const { data } = Astro.props as Props;
 </section>
 
 <style>
-   .split-content {
-      /* grid-template-columns: 1fr 1.5fr; */
-      gap: var(--size-7);
-   }
    .copy {
       text-align: center;
    }

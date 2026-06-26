@@ -1,8 +1,10 @@
 ---
+import { Image } from 'astro:assets';
+
+import PhotoHang from '../../components/PhotoHang.astro';
+
 import Hello from '../../assets/hiRamo.svg';
 import Portrait from '../../assets/portrait.jpg';
-
-import { Image } from 'astro:assets';
 
 interface Props {
    data: { body: Array<string> };
@@ -15,15 +17,17 @@ const { data } = Astro.props as Props;
    <div class="hello">
       <Hello />
    </div>
-   <div class="grid-thirds">
-      <div class="third first-third flow">
-         {data.body.slice(0, 2).map(p => <p>{p}</p>)}
+   <div class="grid-wrap">
+      <div class="image">
+         <PhotoHang src={Portrait.src} alt="Ramo's portrait" />
       </div>
-      <div class="third middle-third flow">
-         <Image src={Portrait} alt="Ramo's portrait" class="photo" />
+      <div class="flow">
+         <p>{data.body[0]}</p>
+         <p>{data.body[1]}</p>
       </div>
-      <div class="third last-third flow">
-         {data.body.slice(2).map(p => <p>{p}</p>)}
+      <div class="flow">
+         <p>{data.body[2]}</p>
+         <p class="last">{data.body[3]}</p>
       </div>
    </div>
 </section>
@@ -36,20 +40,21 @@ const { data } = Astro.props as Props;
       display: flex;
       justify-content: center;
       align-items: center;
+      padding-inline: var(--size-fluid-7);
       padding-block-end: var(--size-7);
    }
    .hello svg {
       fill: var(--second-t);
    }
-   .photo {
-      inline-size: 100%;
-      max-inline-size: 300px;
-      block-size: 300px;
-      object-fit: cover;
+   .image {
+      /* inline-size: 100%; */
+      max-inline-size: var(--size-13);
+      block-size: var(--size-13);
+      margin-inline: auto;
    }
-   .last-third p:last-of-type {
+   .last {
       font-family: var(--font-fancy);
       font-size: 140%;
-      color: var(--brand-t)
+      color: var(--brand-t);
    }
 </style>

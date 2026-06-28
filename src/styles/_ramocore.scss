@@ -1,0 +1,70 @@
+//COMPOSITION
+.flow > * + * {
+   margin-top: var(--flow-space, var(--size-7));
+}
+section, .page-wide {
+   width: 100%;
+   padding-inline: max(((100% - 70rem) / 2), var(--size-3));
+}
+.section-pad {
+   padding-block: var(--size-11);
+}
+
+.flex-row {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   align-items: center;
+   gap: var(--size-3);
+}
+.flex-col {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+.grid-wrap, .grid-thirds {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+   justify-content: center;
+   align-items: center;
+   gap: var(--size-7);
+}
+
+
+// UTILITIES
+//   spacing helpers like .max-width-content
+//   text alignment
+//   visibility helpers
+
+// BLOCKS
+//   .link, a
+//   .hero
+//   .card
+//   .button
+//   .cta-banner
+//   .feature-grid
+
+.placeholder {
+   border: var(--border-size-4) solid var(--brand-pp);
+   background-color: var(--page-1);
+}
+
+// Ideas from ChatGPT to replace flex-row, flex-col, and grid-wrap
+.cluster {
+   display: flex;
+   flex-wrap: wrap;
+   gap: var(--size-3);
+   align-items: center;
+}
+.stack {
+   display: flex;
+   flex-direction: column;
+   gap: var(--size-3);
+}
+.split {
+   display: grid;
+   grid-template-columns:
+      repeat(auto-fit, minmax(300px, 1fr));
+   gap: var(--size-7);
+}

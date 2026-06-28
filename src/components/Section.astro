@@ -1,0 +1,34 @@
+---
+interface Props {
+   id?: string,
+   background?: string,
+   color?: string,
+   sectClass?: string,
+   divClass?: string
+}
+const { id, background, color, sectClass, divClass } = Astro.props;
+
+import { resolveToken } from '../utils/resolve-token.ts';
+
+const bgColor = resolveToken(background, "var(--page)");
+const txtColor = resolveToken(color, "var(--text)");
+---
+
+<section class={sectClass} id={id}>
+   <div class={divClass}>
+      <slot />
+   </div>
+</section>
+
+<style define:vars={{ bgColor, txtColor }}>
+   section {
+      padding-block: var(--section-pad, var(--space-section));
+      background-color: var(--bgColor);
+      color: var(--txtColor);
+   }
+   div {
+      max-width: min(70rem, calc(100% - 2 * var(--size-3)));
+      margin-inline: auto;
+      padding-inline: var(--size-3);
+   }
+</style>

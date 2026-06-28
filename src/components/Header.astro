@@ -3,26 +3,30 @@ import { Icon } from 'astro-icon/components';
 import LogoSwitch from '../assets/ramoLogoSwitch.svg';
 ---
 
-<header>
+<header class="container cluster">
    <div class="logo">
       <LogoSwitch />
    </div>
-   <form class="theme-switch | flex-row" onchange="document.documentElement.dataset.theme = event.target.value">
-      <label><input type="radio" name="theme" value="dark" />
-         <Icon name="tabler:moon" /></label>
-      <label><input type="radio" name="theme" value="system" checked />
-         <Icon name="tabler:device-desktop"></label>
-      <label><input type="radio" name="theme" value="light" />
-         <Icon name="tabler:sun"></label>
+   <form class="theme-switch | cluster" onchange="document.documentElement.dataset.theme = event.target.value">
+      <label>
+         <input type="radio" name="theme" value="dark" />
+         <Icon name="tabler:moon" />
+      </label>
+      <label>
+         <input type="radio" name="theme" value="system" checked />
+         <Icon name="tabler:device-desktop" />
+      </label>
+      <label>
+         <input type="radio" name="theme" value="light" />
+         <Icon name="tabler:sun" />
+      </label>
    </form>
 </header>
 
 <style>
    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-block: var(--size-3) var(--size-9);
+      --cluster-justify: space-between;
+      padding-block: var(--size-5);
    }
    input[type="radio"] {
       display: none;

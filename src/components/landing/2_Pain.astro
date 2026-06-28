@@ -1,4 +1,6 @@
 ---
+import Section from '../Section.astro';
+
 type splitSection = {
    heading: string,
    subheading?: string,
@@ -13,7 +15,7 @@ interface Props {
 
 const { data } = Astro.props as Props;
 ---
-<section id="pain" class="grid-wrap | section-pad">
+<Section id="pain" divClass="grid">
    <div class="copy | flow">
       <h2>{data.copy.heading}</h2>
       <h3>{data.copy.subheading}</h3>
@@ -26,7 +28,7 @@ const { data } = Astro.props as Props;
       </div>
       <p>{data.visual.body}</p>
    </div>
-</section>
+</Section>
 
 <style>
    .copy {

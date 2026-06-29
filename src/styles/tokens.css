@@ -2,6 +2,9 @@
    --space-layout: var(--size-7); /* default layout gap */
    --space-flow: var(--size-7); /* vertical content rhythm */
    --space-section: var(--size-11); /* section padding */
+   /* --space-tight: var(--size-3); */
+   /* --space-loose: var(--size-9); */
+
    --measure-page: 70rem; /* default page content container */
    --measure-wide: 90rem; /* sections that breathe more */
    --measure-prose: 65ch; /* long-form reading width */
@@ -19,16 +22,17 @@
    --second-pp: var(--choco-9);
 
    --accent-tt: var(--yellow-1);
-   --accent-t: var(--yellow-2);
-   --accent: var(--yellow-4);
-   --accent-p: var(--yellow-6);
-   --accent-pp: var(--yellow-8);
+   --accent-t: var(--yellow-3);
+   --accent: var(--yellow-5);
+   --accent-p: var(--yellow-7);
+   --accent-pp: var(--yellow-11);
 
    --text-0: var(--stone-1);
    --text: var(--stone-3);
    --text-1: var(--stone-4);
    --text-2: var(--stone-5);
    --text-3: var(--stone-6);
+   --text-4: var(--stone-7);
 
    --page-0: var(--stone-12);
    --page: var(--stone-11);
@@ -51,16 +55,18 @@
    --second-p: var(--choco-5);
    --second-pp: var(--choco-3);
 
-   --accent-tt: var(--yellow-9);
-   --accent-t: var(--yellow-8);
+   --accent-tt: var(--yellow-11);
+   --accent-t: var(--yellow-9);
    --accent: var(--yellow-7);
    --accent-p: var(--yellow-6);
-   --accent-pp: var(--yellow-5);
+   --accent-pp: var(--yellow-4);
 
+   --text-0: var(--stone-11);
    --text: var(--stone-9);
    --text-1: var(--stone-8);
    --text-2: var(--stone-7);
    --text-3: var(--stone-6);
+   --text-4: var(--stone-5);
 
    --page-0: var(--stone-1);
    --page: var(--stone-2);

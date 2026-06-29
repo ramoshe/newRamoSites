@@ -21,12 +21,12 @@ const { data } = Astro.props as Props;
             <PhotoHang src={Portrait.src} alt="Ramo's portrait" />
          </div>
          <div class="flow">
-            <p>{data.body[0]}</p>
+            <p class="note-font">{data.body[0]}</p>
             <p>{data.body[1]}</p>
          </div>
          <div class="flow">
             <p>{data.body[2]}</p>
-            <p class="last">{data.body[3]}</p>
+            <p class="fancy-font">{data.body[3]}</p>
          </div>
       </div>
    </div>
@@ -45,10 +45,8 @@ const { data } = Astro.props as Props;
       padding-inline: var(--size-3);
       max-inline-size: var(--size-14);
    }
-   .last {
-      font-family: var(--font-fancy);
-      font-size: 1.4em;
-      color: var(--brand-t);
+   .note-font, .fancy-font {
+      font-size: 1.5em;
    }
 
    @container (max-width: 60rem) {
@@ -70,6 +68,9 @@ const { data } = Astro.props as Props;
       }
       .hello svg {
          padding-inline: var(--size-fluid-3);
+      }
+      .flow {
+         max-inline-size: 45ch;
       }
    }
 </style>

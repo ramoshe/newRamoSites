@@ -16,22 +16,24 @@ const { btnLink, btnText, btnId, text, id, reverse } = Astro.props as Props;
 ---
 
 <section class="section graph-paper" id={id}>
-   <div class:list={["container cluster", reverse && "reverse"]}>
-      <Button text={btnText} link={btnLink} id={btnId} classList="btn-large" />
-      <Icon name="tabler:arrow-big-right-line" class="icon" />
-      <p class="cta_text">{text}</p>
+   <div class="container">
+      <div class="cluster"> {reverse ? (
+         <Button text={btnText} link={btnLink} id={btnId} classList="btn-large" />
+         <Icon name="tabler:arrow-big-left-line" class="icon" />
+         <p class="cta_text">{text}</p>
+      ) : (
+         <p class="cta_text">{text}</p>
+         <Icon name="tabler:arrow-big-right-line" class="icon" />
+         <Button text={btnText} link={btnLink} id={btnId} classList="btn-large" />
+      )} </div>
       <slot />
    </div>
 </section>
 
 <style>
    .cta_text {
-      inline-size: fit-content;
       text-wrap: balance;
       font-size: 1.4em;
       color: var(--text-0);
-   }
-   .reverse {
-      --cluster-direction: row-reverse;
    }
 </style>

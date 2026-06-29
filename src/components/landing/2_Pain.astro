@@ -31,6 +31,9 @@ const { data } = Astro.props as Props;
 </section>
 
 <style>
+   .section {
+      container-type: inline-size;
+   }
    .visual {
       text-align: center;
    }
@@ -38,5 +41,11 @@ const { data } = Astro.props as Props;
       inline-size: 90%;
       margin: auto;
       aspect-ratio: 1;
+   }
+
+   @container (max-width: 40rem) {
+      .copy {
+         text-align: center;
+      }
    }
 </style>

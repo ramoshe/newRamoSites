@@ -5,7 +5,7 @@ import { LINKS } from '../content/consts';
 ---
 
 <footer class="section">
-   <div class="grid">
+   <div class="container grid">
       <div class="title | fancy-font">
          <p>Build a Home That's Yours</p>
       </div>
@@ -25,33 +25,45 @@ import { LINKS } from '../content/consts';
       background-color: var(--text-2);
       color: var(--page-0);
       text-align: center;
-      /* container-type: inline-size; */
+      container-type: inline-size;
    }
    .grid {
       --grid-gap: var(--size-3);
       --grid-min: 10rem;
       --grid-columns: 1fr 2fr 1fr;
    }
+   .stack {
+      --stack-gap: var(--size-3);
+      --stack-justify: center;
+      --stack-align: center;
+   }
    .title p {
-      font-size: 200%;
+      font-size: 2em;
       text-wrap: unset;
       color: var(--brand-pp);
       margin-inline-end: auto;
    }
-   .stack {
-      --stack-gap: var(--size-3);
-   }
    .thanks a {
       inline-size: fit-content;
-      margin: auto;
       color: var(--page);
+      font-size: 1.2em;
    }
    .copyright p {
       color: var(--second-pp);
-      font-size: 80%;
+      font-size: .8em;
    }
    .logo {
-      block-size: var(--size-8);
-      margin: auto;
+      block-size: var(--size-9);
+   }
+
+   @container (max-width: 60rem) {
+      .grid {
+         --grid-columns: 1fr 1fr 1fr;
+      }
+   }
+   @container (max-width: 40rem) {
+      .grid {
+         --grid-columns: 1fr;
+      }
    }
 </style>

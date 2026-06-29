@@ -18,11 +18,11 @@ const { data } = Astro.props as Props;
 <section class="section">
    <Header />
    <div class="container grid">
-      <div class="content">
-         <h1 class="head">{data.copy.heading}</h1>
-         <p class="attn">{data.copy.attention}</p>
-         <h2 class="sbhead">{data.copy.subheading}</h2>
-         <p class="tag">{data.copy.tagline}</p>
+      <div class="copy flow">
+         <h1>{data.copy.heading}</h1>
+         <p>{data.copy.attention}</p>
+         <h2>{data.copy.subheading}</h2>
+         <p>{data.copy.tagline}</p>
       </div>
       <div class="video">
          <p class="video_text">{data.video.caption}</p>
@@ -38,15 +38,40 @@ const { data } = Astro.props as Props;
    .section {
       padding-block-start: var(--size-7);
       background-color: var(--page-1);
+      container-type: inline-size;
+   }
+   .grid {
+      --grid-columns: 1.5fr 1fr;
    }
    h1 {
       text-wrap: unset;
    }
-   .content {
-      grid-column: span 2;
+   .video_text {
+      font-size: .9em;
+      color: var(--second-t);
    }
    .video_embed {
       inline-size: 100%;
       aspect-ratio: 16/9;
+   }
+
+   @container (max-width: 60rem) {
+      .grid {
+         --grid-columns: 1fr 1fr;
+      }
+   }
+   @container (max-width: 50rem) {
+      .grid {
+         --grid-columns: 1fr;
+         text-align: center;
+      }
+      p {
+         inline-size: 100%;
+         max-inline-size: none;
+      }
+      .video {
+         inline-size: 60%;
+         margin: auto;
+      }
    }
 </style>

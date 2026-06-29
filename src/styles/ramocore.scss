@@ -98,8 +98,9 @@
    --_gap: var(--stack-gap, var(--space-layout));
    --_align: var(--stack-align, stretch);
    --_justify: var(--stack-justify, flex-start);
+   --_direction: var(--stack-direction, column);
    display: flex;
-   flex-direction: column;
+   flex-direction: var(--_direction);
    gap: var(--_gap);
    align-items: var(--_align);
    justify-content: var(--_justify);

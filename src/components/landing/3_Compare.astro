@@ -20,8 +20,8 @@ const { data } = Astro.props as Props;
       {Object.values(data).map(comp => (
       <div class:list={['comp', comp.title.toLocaleLowerCase()]}>
          <div class="comp_head | stack">
-            <h2 class="comp_title">{comp.title}</h2>
-            <h3 class="comp_heading">{comp.heading}</h3>
+            <p>{comp.heading}</p>
+            <h2>{comp.title}</h2>
          </div>
          {comp.rows.map(row => (
          <div class="comp_row | stack">
@@ -29,7 +29,7 @@ const { data } = Astro.props as Props;
             <p class="row_words">{row.words}</p>
          </div>
          ))}
-         <p class="comp_bottom">{comp.bottom}</p>
+         <p class="comp_end">{comp.bottom}</p>
       </div>
       ))}
    </div>
@@ -39,7 +39,7 @@ const { data } = Astro.props as Props;
    .section {
       background-color: var(--page-1);
       text-align: center;
-      /* container-type: inline-size; */
+      container-type: inline-size;
    }
    .grid {
       --grid-gap: 0;
@@ -48,24 +48,63 @@ const { data } = Astro.props as Props;
    .stack {
       --stack-gap: 0;
    }
-   .comp_row, .comp_head {
+   .comp_row,
+   .comp_head {
       border-block-end: var(--border-size-1) solid var(--text-2);
       padding-block: var(--size-2);
    }
-   .row_point {
-      font-weight: var(--font-weight-7);
-   }
-   .problems .row_point, .problems .comp_bottom {
+   .comp_head p {
+      font-family: var(--font-note);
+      font-size: 2.5em;
       color: var(--second-t);
    }
-   .solutions .row_point, .solutions .comp_bottom {
+   .comp_head h2 {
+      font-size: 3.5em;
+   }
+   .row_point {
+      font-weight: var(--font-weight-7);
+      font-size: 1.4em;
+   }
+   .problems .row_point,
+   .problems .comp_end {
+      color: var(--second-t);
+   }
+   .solutions .row_point,
+   .solutions .comp_end {
       color: var(--brand-t);
    }
    .row_words {
-      font-size: var(--font-size-1);
+      font-size: .9em;
    }
-   .comp_bottom {
+   .comp_end {
       padding: var(--size-7);
-      padding-block-end: 0;
+   }
+
+   @container (max-width: 50rem) {
+      .grid {
+         --grid-columns: 1fr;
+         --grid-gap: var(--size-11);
+      }
+      p {
+         inline-size: 100%;
+         max-inline-size: none;
+      }
+      .comp {
+         border: var(--border-size-1) solid var(--text-2);
+         max-inline-size: 50ch;
+         margin: auto;
+      }
+      .comp_row:not(:last-of-type) {
+         border: none;
+      }
+      .comp_head {
+         background-color: var(--page-2);
+      }
+      .comp_row {
+         padding-block: var(--size-3) var(--size-5);
+      }
+      .comp_end {
+         background-color: var(--page);
+      }
    }
 </style>

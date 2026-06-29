@@ -13,13 +13,26 @@ const { src, alt, caption, ...rest } = Astro.props;
 
 <style>
    .wave {
-      animation: wave  ease-in-out 1.4s infinite alternate;
+      --_size: var(--photo-size, auto);
+      --_ratio: var(--photo-ratio, 1);
+      --_fit: var(--photo-fit, cover);
+      --_border: var(--photo-border, var(--border-size-4));
+      display: inline-block;
+      position: relative;
+      inline-size: var(--_size);
       transform-origin: center -36px;
+      animation: wave  ease-in-out 1.4s infinite alternate;
+   }
+   .wave img {
+      display: block;
+      inline-size: 100%;
+      aspect-ratio: var(--_ratio);
+      object-fit: var(--_fit);
+      border: var(--_border) solid var(--text);
    }
 
-   @keyframes wave {
-      0% { transform: rotate(3deg); }
-      100% { transform: rotate(-3deg); }
+   .wave figcaption {
+      text-align: center;
    }
 
    .wave:hover {
@@ -27,15 +40,9 @@ const { src, alt, caption, ...rest } = Astro.props;
       cursor: pointer;
    }
 
-   .wave img {
-      border: var(--border-size-4) solid var(--text);
-      display: block;
-      aspect-ratio: 1;
-      object-fit: cover;
-   }
-
-   .wave figcaption {
-      text-align: center;
+   @keyframes wave {
+      0% { transform: rotate(3deg); }
+      100% { transform: rotate(-3deg); }
    }
 
    /* string */

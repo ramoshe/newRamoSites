@@ -42,14 +42,12 @@ const { data } = Astro.props as Props;
       fill: var(--second-t);
    }
    .image {
-      inline-size: 100%;
+      padding-inline: var(--size-3);
       max-inline-size: var(--size-14);
-      block-size: var(--size-14);
-      margin-inline: auto;
    }
    .last {
       font-family: var(--font-fancy);
-      font-size: 140%;
+      font-size: 1.4em;
       color: var(--brand-t);
    }
 
@@ -66,7 +64,7 @@ const { data } = Astro.props as Props;
       }
    }
 
-   @container (max-width: 38rem) {
+   @container (max-width: 40rem) {
       .grid {
          --grid-columns: 1fr;
       }

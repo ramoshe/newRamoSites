@@ -1,5 +1,4 @@
 ---
-import Section from '../Section.astro';
 import Header from '../Header.astro';
 import CTA from '../CTA.astro';
 
@@ -16,34 +15,38 @@ interface Props {
 const { data } = Astro.props as Props;
 ---
 
-
-<Header />
-
-<Section id="hero" background="page-1" divClass="grid">
-   <div class="hero_content">
-      <h1 class="hero_head">{data.copy.heading}</h1>
-      <p class="hero_attn">{data.copy.attention}</p>
-      <h2 class="hero_sbhead">{data.copy.subheading}</h2>
-      <p class="hero_tag">{data.copy.tagline}</p>
+<section class="section">
+   <Header />
+   <div class="container grid">
+      <div class="content">
+         <h1 class="head">{data.copy.heading}</h1>
+         <p class="attn">{data.copy.attention}</p>
+         <h2 class="sbhead">{data.copy.subheading}</h2>
+         <p class="tag">{data.copy.tagline}</p>
+      </div>
+      <div class="video">
+         <p class="video_text">{data.video.caption}</p>
+         <div class="video_embed">
+            <YouTube id={data.video.url} />
+         </div>
+      </div>
    </div>
-
-   <div class="hero_video">
-      <p class="video_text">{data.video.caption}</p>
-      <!-- <div class="video_embed">
-         <YouTube id={data.video.url} />
-      </div> -->
-      <div style="background:red; height:200px;"></div>
-   </div>
-</Section>
-
-<CTA id="hero_cta" text={data.cta.text} btnText={data.cta.link} btnLink="#vision" />
+</section>
+<CTA text={data.cta.text} btnText={data.cta.link} btnLink="#vision" />
 
 <style>
-   #hero {
+   .section {
       padding-block-start: var(--size-7);
+      background-color: var(--page-1);
    }
-   /* .video_embed {
+   h1 {
+      text-wrap: unset;
+   }
+   .content {
+      grid-column: span 2;
+   }
+   .video_embed {
       inline-size: 100%;
       aspect-ratio: 16/9;
-   } */
+   }
 </style>

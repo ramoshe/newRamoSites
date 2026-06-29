@@ -1,5 +1,4 @@
 ---
-import Section from '../components/Section.astro';
 import Button from '../components/Button.astro';
 
 import { Icon } from 'astro-icon/components';
@@ -7,15 +6,32 @@ import { Icon } from 'astro-icon/components';
 interface Props {
    btnLink: string,
    btnText: string,
+   btnId?: string,
    text: string,
-   id?: string
+   id?: string,
+   reverse?: boolean
 }
 
-const { btnLink, btnText, text, id } = Astro.props as Props;
+const { btnLink, btnText, btnId, text, id, reverse } = Astro.props as Props;
 ---
 
-<Section sectClass="graph-paper" divClass="cluster" id={id}>
-   <Button text={btnText} link={btnLink} classList="btn-large" />
-   <Icon name="tabler:arrow-big-right-line" class="icon" />
-   <p class="cta_text">{text}</p>
-</Section>
+<section class="section graph-paper" id={id}>
+   <div class:list={["container cluster", reverse && "reverse"]}>
+      <Button text={btnText} link={btnLink} id={btnId} classList="btn-large" />
+      <Icon name="tabler:arrow-big-right-line" class="icon" />
+      <p class="cta_text">{text}</p>
+      <slot />
+   </div>
+</section>
+
+<style>
+   .cta_text {
+      inline-size: fit-content;
+      text-wrap: balance;
+      font-size: 140%;
+      color: var(--text-0);
+   }
+   .reverse {
+      --cluster-direction: row-reverse;
+   }
+</style>

@@ -10,13 +10,15 @@ interface Props {
 const { data } = Astro.props as Props;
 ---
 
-<section id="vision" class="flow flex-col | section-pad">
-   <h2>{data.heading}</h2>
-   <p>{data.body}</p>
-   <div class="diagram placeholder">
-      <!-- TODO create diagram of centralized home -->
+<section id="vision" class="section">
+   <div class="container stack">
+      <h2>{data.heading}</h2>
+      <p>{data.body}</p>
+      <div class="diagram placeholder">
+         <!-- TODO create diagram of centralized home -->
+      </div>
+      <h3>{data.call}</h3>
    </div>
-   <h3>{data.call}</h3>
 </section>
 
 <style>
@@ -31,5 +33,6 @@ p {
    inline-size: 70%;
    block-size: 100%;
    aspect-ratio: 16/9;
+   margin: auto;
 }
 </style>

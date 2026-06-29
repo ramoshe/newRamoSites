@@ -1,37 +1,96 @@
-// RAMOCORE — — — — — — — — — — — — — — — — — — — — —
-//    design Grammar for RamoSites
-//    uses Open Props and tokens from global.css
-// — — — — — — — — — — — — — — — — — — — — — — — — — —
+//— — — — — — — — — — — — — — — — — — — — — — — — — — — —
+//
+//   RAMOCORE   design Grammar for RamoSites
+//              uses Open Props and tokens.css
+//
+//— — — — — — — — — — — — — — — — — — — — — — — — — — — —
 
-//— — — — — — — — — — — — — —
-// BASE
-//— — — — — — — — — — — — — —
+//— — — — — — — — — — — — — — — — — — — — — — — — — — — —
+//
+//                      BASE
+//
+//— — — — — — — — — — — — — — — — — — — — — — — — — — — —
 
-// — FLOW  create consistent vertical rhythm between siblings.
+// — FLOW  create consistent vertical rhythm between siblings
 //    --flow-space
 .flow > * + * {
    --_space: var(--flow-space, var(--space-flow));
    margin-block-start: var(--_space);
 }
 
-// — CONTAINER  constrain content to a readable width.
+// — SECTION  primary structural block for page regions
+//    --section-pad
+//    --section-bg
+//    --section-color
+.section {
+   --_padding: var(--section-pad, var(--space-section));
+   --_bg: var(--section-bg, var(--page));
+   --_color: var(--section-color, var(--text));
+   padding-block: var(--_padding);
+   background-color: var(--_bg);
+   color: var(--_color);
+}
+
+// — CONTAINER  constrains and centers page content
 //    --container-width
 //    --container-padding
 .container {
-   --_width: var(--container-width, var(--measure-content));
-   --_padding: var(--container-padding, var(--space-layout));
+   --_width: var(--container-width, var(--measure-page));
+   --_padding: var(--container-padding, var(--size-3));
    inline-size: min(100%, var(--_width));
    margin-inline: auto;
    padding-inline: var(--_padding);
-   container-type: inline-size;
+}
+
+// — PROSE  constrain long-form text
+//    --prose-width
+.prose {
+   --_width: var(--prose-width, var(--measure-prose));
+   max-inline-size: var(--_width);
 }
 
 
-//— — — — — — — — — — — — — —
-// LAYOUT
-//— — — — — — — — — — — — — —
+//— — — — — — — — — — — — — — — — — — — — — — — — — — — —
+//
+//                      LAYOUT
+//
+//— — — — — — — — — — — — — — — — — — — — — — — — — — — —
 
-// — STACK  stack elements vertically with a consistent gap.
+// — GRID  create responsive auto-fitting columns
+//    --grid-gap
+//    --grid-min
+.grid {
+   --_gap: var(--grid-gap, var(--space-layout));
+   --_min: var(--grid-min, 18rem);
+   --_columns: var(--grid-columns,
+               repeat(auto-fit, minmax(var(--_min), 1fr)));
+   --_align: var(--grid-align, center);
+   --_justify: var(--grid-justify, center);
+   display: grid;
+   gap: var(--_gap);
+   grid-template-columns: var(--_columns);
+   align-items: var(--_align);
+   justify-content: var(--_justify);
+}
+
+// — CLUSTER  arrange elements horizontally with wrapping
+//    --cluster-gap
+//    --cluster-align
+//    --cluster-justify
+.cluster {
+   --_gap: var(--cluster-gap, var(--space-layout));
+   --_align: var(--cluster-align, center);
+   --_justify: var(--cluster-justify, center);
+   --_direction: var(--cluster-direction, row);
+   display: flex;
+   flex-wrap: wrap;
+   flex-direction: var(--_direction);
+   gap: var(--_gap);
+   align-items: var(--_align);
+   justify-content: var(--_justify);
+}
+
+// — STACK  stack elements vertically with a consistent gap
 //    --stack-gap
 //    --stack-align
 //    --stack-justify
@@ -45,53 +104,15 @@
    align-items: var(--_align);
    justify-content: var(--_justify);
 }
-// @container (max-width: 30rem) {
-//    .stack {
-//       --stack-gap: var(--size-2);
-//    }
-// }
-
-// — CLUSTER  arrange elements horizontally with wrapping.
-//    --cluster-gap
-//    --cluster-align
-//    --cluster-justify
-.cluster {
-   --_gap: var(--cluster-gap, var(--space-layout));
-   --_align: var(--cluster-align, center);
-   --_justify: var(--cluster-justify, flex-start);
-   display: flex;
-   flex-wrap: wrap;
-   gap: var(--_gap);
-   align-items: var(--_align);
-   justify-content: var(--_justify);
-}
-// @container (max-width: 25rem) {
-//    .cluster {
-//       justify-content: center;
-//    }
-// }
-
-// — GRID  create responsive auto-fitting columns.
-//    --grid-gap
-//    --grid-min
-.grid {
-   --_gap: var(--grid-gap, var(--space-layout));
-   --_min: var(--grid-min, 18rem);
-   display: grid;
-   gap: var(--_gap);
-   grid-template-columns: repeat(auto-fit, minmax(var(--_min), 1fr));
-}
-// @container (max-width: 40rem) {
-//    .grid {
-//       --_min: 100%;
-//    }
-// }
 
 
-//— — — — — — — — — — — — — —
-// UTILITIES
-//— — — — — — — — — — — — — —
+//— — — — — — — — — — — — — — — — — — — — — — — — — — — —
+//
+//                      UTILITIES
+//
+//— — — — — — — — — — — — — — — — — — — — — — — — — — — —
 
+// image place holder border and light background
 .placeholder {
    border: var(--border-size-4) solid var(--brand-pp);
    background-color: var(--page-1);

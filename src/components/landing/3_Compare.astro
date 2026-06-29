@@ -1,6 +1,4 @@
 ---
-import Section from '../Section.astro';
-
 type compItem = {
    title: string,
    heading: string,
@@ -17,32 +15,41 @@ interface Props {
 const { data } = Astro.props as Props;
 ---
 
-<Section id="compare" divClass="grid" background="page-1">
-   {Object.values(data).map(comp => (
-   <div class:list={['comp', comp.title.toLocaleLowerCase()]}>
-      <div class="comp_head flex-row">
-         <h2 class="comp_title">{comp.title}</h2>
-         <h3 class="comp_heading">{comp.heading}</h3>
+<section class="section">
+   <div class="container grid">
+      {Object.values(data).map(comp => (
+      <div class:list={['comp', comp.title.toLocaleLowerCase()]}>
+         <div class="comp_head | stack">
+            <h2 class="comp_title">{comp.title}</h2>
+            <h3 class="comp_heading">{comp.heading}</h3>
+         </div>
+         {comp.rows.map(row => (
+         <div class="comp_row | stack">
+            <p class="row_point">{row.point}</p>
+            <p class="row_words">{row.words}</p>
+         </div>
+         ))}
+         <p class="comp_bottom">{comp.bottom}</p>
       </div>
-
-      {comp.rows.map(row => (
-      <div class="comp_row">
-         <p class="row_point">{row.point}</p>
-         <p class="row_words">{row.words}</p>
-      </div>))}
-
-      <p class="comp_bottom">{comp.bottom}</p>
+      ))}
    </div>
-   ))}
-</Section>
+</section>
 
 <style>
+   .section {
+      background-color: var(--page-1);
+      text-align: center;
+      /* container-type: inline-size; */
+   }
    .grid {
       --grid-gap: 0;
-      text-align: center;
+      --grid-align: start;
    }
-   .comp_row {
-      border: var(--border-size-1) solid var(--text-2);
+   .stack {
+      --stack-gap: 0;
+   }
+   .comp_row, .comp_head {
+      border-block-end: var(--border-size-1) solid var(--text-2);
       padding-block: var(--size-2);
    }
    .row_point {

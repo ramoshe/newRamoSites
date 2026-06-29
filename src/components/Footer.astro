@@ -4,60 +4,54 @@ import LogoSwitch from '../assets/ramoLogoSwitch.svg';
 import { LINKS } from '../content/consts';
 ---
 
-<footer class="section-pad page-wide grid-wrap">
-   <div class="title | fancy-font">
-      <h4 class="site-title">Build a Home That's Yours</h4>
-   </div>
-   <div class="signoff">
-      <p class="thanks">Thanks for helping shape what comes next.</p>
-      <a href={LINKS.ramo} target="_blank">♡, Ramo</a>
-   </div>
-   <div class="copyright flex-col">
-      <LogoSwitch class="logo" />
-      <p>&copy; 2026 theRamoShe LLC<br />All Rights Reserved</p>
+<footer class="section">
+   <div class="grid">
+      <div class="title | fancy-font">
+         <p>Build a Home That's Yours</p>
+      </div>
+      <div class="thanks | stack">
+         <p>Thanks for helping shape what comes next.</p>
+         <a href={LINKS.ramo} target="_blank">♡, Ramo</a>
+      </div>
+      <div class="copyright | stack">
+         <LogoSwitch class="logo" />
+         <p>&copy; 2026 theRamoShe LLC<br />All Rights Reserved</p>
+      </div>
    </div>
 </footer>
 
 <style>
-   footer {
-      background-color: var(--page-0);
+   .section {
+      background-color: var(--text-2);
+      color: var(--page-0);
       text-align: center;
-      grid-template-columns: repeat(auto-fit, minmax(min(140px, 100%), 1fr)) !important;
-      gap: var(--size-1) !important;
+      /* container-type: inline-size; */
    }
-   .site-title {
-      font-size: 160%;
+   .grid {
+      --grid-gap: var(--size-3);
+      --grid-min: 10rem;
+      --grid-columns: 1fr 2fr 1fr;
+   }
+   .title p {
+      font-size: 200%;
       text-wrap: unset;
-      color: var(--brand);
+      color: var(--brand-pp);
       margin-inline-end: auto;
-      text-align: left;
    }
-   .signoff {
-      grid-column: span 2;
+   .stack {
+      --stack-gap: var(--size-3);
    }
-   .thanks {
-      text-wrap: balance;
-      padding-block-end: var(--size-4);
+   .thanks a {
+      inline-size: fit-content;
+      margin: auto;
+      color: var(--page);
    }
    .copyright p {
-      color: var(--second);
+      color: var(--second-pp);
       font-size: 80%;
    }
    .logo {
       block-size: var(--size-8);
-      margin-block-end: var(--size-4);
-   }
-   @media (--lg-n-below) {
-      .site-title {
-         text-align: center;
-         color: red;
-      }
-      .signoff {
-         grid-column: span 1;
-      }
-      footer {
-         display: flex;
-         flex-direction: column;
-      }
+      margin: auto;
    }
 </style>

@@ -1,6 +1,4 @@
 ---
-import { Image } from 'astro:assets';
-
 import PhotoHang from '../../components/PhotoHang.astro';
 
 import Hello from '../../assets/hiRamo.svg';
@@ -13,48 +11,67 @@ interface Props {
 const { data } = Astro.props as Props;
 ---
 
-<section id="founder" class="section-pad">
-   <div class="hello">
-      <Hello />
-   </div>
-   <div class="grid-wrap">
-      <div class="image">
-         <PhotoHang src={Portrait.src} alt="Ramo's portrait" />
+<section id="founder" class="section">
+   <div class="container stack flow">
+      <div class="hello">
+         <Hello />
       </div>
-      <div class="flow">
-         <p>{data.body[0]}</p>
-         <p>{data.body[1]}</p>
-      </div>
-      <div class="flow">
-         <p>{data.body[2]}</p>
-         <p class="last">{data.body[3]}</p>
+      <div class="grid">
+         <div class="image">
+            <PhotoHang src={Portrait.src} alt="Ramo's portrait" />
+         </div>
+         <div class="flow">
+            <p>{data.body[0]}</p>
+            <p>{data.body[1]}</p>
+         </div>
+         <div class="flow">
+            <p>{data.body[2]}</p>
+            <p class="last">{data.body[3]}</p>
+         </div>
       </div>
    </div>
 </section>
 
 <style>
-   #founder {
+   .section {
       background-color: var(--page-0);
-   }
-   .hello {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding-inline: var(--size-fluid-7);
-      padding-block-end: var(--size-7);
+      container-type: inline-size;
    }
    .hello svg {
+      padding-inline: var(--size-fluid-7);
       fill: var(--second-t);
    }
    .image {
-      /* inline-size: 100%; */
-      max-inline-size: var(--size-13);
-      block-size: var(--size-13);
+      inline-size: 100%;
+      max-inline-size: var(--size-14);
+      block-size: var(--size-14);
       margin-inline: auto;
    }
    .last {
       font-family: var(--font-fancy);
       font-size: 140%;
       color: var(--brand-t);
+   }
+
+   @container (max-width: 60rem) {
+      .grid {
+         --grid-columns: 1fr 1fr;
+      }
+      .hello svg {
+         padding-inline: var(--size-fluid-5);
+      }
+      .image {
+         grid-column: 1 / -1;
+         justify-self: center;
+      }
+   }
+
+   @container (max-width: 38rem) {
+      .grid {
+         --grid-columns: 1fr;
+      }
+      .hello svg {
+         padding-inline: var(--size-fluid-3);
+      }
    }
 </style>

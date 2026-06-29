@@ -2,12 +2,9 @@
    --space-layout: var(--size-7); /* default layout gap */
    --space-flow: var(--size-7); /* vertical content rhythm */
    --space-section: var(--size-11); /* section padding */
-   --measure-content: 700rem; /* max readable width */
-
-   /* --layout-gap: var(--size-3); */
-   /* --content-gap: var(--size-7); */
-   /* --section-padding: var(--size-11); */
-   /* --content-width: 70rem; */
+   --measure-page: 70rem; /* default page content container */
+   --measure-wide: 90rem; /* sections that breathe more */
+   --measure-prose: 65ch; /* long-form reading width */
 
    --brand-tt: var(--cyan-2);
    --brand-t: var(--cyan-3);

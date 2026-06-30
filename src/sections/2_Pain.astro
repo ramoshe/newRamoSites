@@ -1,7 +1,9 @@
 ---
+// import SocialVisual from '../assets/socialVisual.astro';
+
 type splitSection = {
    heading: string,
-   subheading?: string,
+   subheading?: Array<string>,
    body: string
 }
 interface Props {
@@ -17,13 +19,14 @@ const { data } = Astro.props as Props;
    <div class="container grid">
       <div class="copy | flow">
          <h2>{data.copy.heading}</h2>
-         <h3>{data.copy.subheading}</h3>
+         <h3>{data.copy.subheading?.map((sub) => (
+            <span>{sub}</span>))}</h3>
          <p>{data.copy.body}</p>
       </div>
       <div class="visual | stack">
          <h3>{data.visual.heading}</h3>
          <div class="socialVisual placeholder">
-            <!-- TODO add visual with social icons floating -->
+            <!-- <SocialVisual /> -->
          </div>
          <p>{data.visual.body}</p>
       </div>
@@ -34,13 +37,12 @@ const { data } = Astro.props as Props;
    .section {
       container-type: inline-size;
    }
+   .copy span {
+      display: block;
+      padding-block-end: var(--size-4);
+   }
    .visual {
       text-align: center;
-   }
-   .socialVisual {
-      inline-size: 90%;
-      margin: auto;
-      aspect-ratio: 1;
    }
 
    @container (max-width: 40rem) {

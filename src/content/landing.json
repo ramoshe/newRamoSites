@@ -22,7 +22,11 @@
 		},
 		"copy": {
 			"heading": "Followers Are Not Ownership",
-			"subheading": "Algorithms change. Platforms disappear. Accounts get suspended.",
+			"subheading": [
+				"Algorithms change.",
+				"Platforms disappear.",
+				"Accounts get suspended."
+			],
 			"body": "10,000 followers sounds impressive…but if you can't reach them tomorrow without asking a platform for permission, do you really own that audience?"
 		}
    },

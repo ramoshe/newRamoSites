@@ -1,14 +1,14 @@
 {
    "hero": {
 		"copy": {
-			"heading": "Build a home that's Yours",
+			"heading": "Build a Home that is YOURS",
 			"attention": "For streamers, artists, musicians, makers, and creators.",
-			"subheading": "Stop renting your audience.",
+			"subheading": "Stop Renting Your Audience.",
 			"tagline": "Own your content. Build your community. Escape the algorithm goblins."
 		},
 		"video": {
 			"url": "https://youtu.be/_PEv9VeWtmY?si=QY1UZq_pegeSFbN_",
-			"caption": "Prefer audio? Here's the 3-minute version."
+			"caption": ["Prefer to hear it?", "Here's the 3-minute version ⤵"]
 		},
 		"cta": {
 			"link": "I'm Interested",
@@ -83,14 +83,14 @@
    "founder": {
 		"body": [
 			"I'm a creator too.",
-			"I've spent years watching streamers, artists, musicians, makers, and creators pour energy into platforms they don't control.",
-			"The tools I've found are often too limiting, too expensive, too complicated, or simply not designed with creators in mind.",
+			"I've spent years watching creative people pour energy into platforms they don't control.",
+			"All the tools I've tried are limiting, expensive, complicated, or simply not designed for creators' needs.",
 			"So I'm building something different."
 		]
    },
    "vision": {
 		"heading": "I'm Building Something for Creators Like Us",
-		"body": "I'm researching a better way for creators to build websites that are flexible, affordable, and actually feel like their own.",
+		"body": "I'm researching a better way for creators to build websites that are flexible, affordable, and actually feel like our own.",
 		"call": "If that sounds interesting, I'd love your input."
    },
    "action": {

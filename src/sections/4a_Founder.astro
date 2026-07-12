@@ -26,7 +26,7 @@ const { data } = Astro.props as Props;
          </div>
          <div class="flow">
             <p>{data.body[2]}</p>
-            <p class="fancy-font">{data.body[3]}</p>
+            <p class="note-font">{data.body[3]}</p>
          </div>
       </div>
    </div>
@@ -45,8 +45,10 @@ const { data } = Astro.props as Props;
       padding-inline: var(--size-3);
       max-inline-size: var(--size-14);
    }
-   .note-font, .fancy-font {
-      font-size: 1.5em;
+   .note-font {
+      font-size: var(--font-size-4);
+      color: var(--brand-t);
+      font-weight: bold;
    }
 
    @container (max-width: 60rem) {

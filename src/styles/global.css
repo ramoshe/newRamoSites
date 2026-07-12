@@ -24,6 +24,11 @@ h1, h2, .fancy-font {
 h3, .note-font {
    font-family: var(--font-note, sans-serif);
    color: var(--second-tt);
+   letter-spacing: .1em;
+}
+p {
+   inline-size: 100%;
+   max-inline-size: none;
 }
 a:not(.btn) {
    color: var(--accent-t);

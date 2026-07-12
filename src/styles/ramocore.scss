@@ -19,10 +19,10 @@
 }
 
 // SECTION  primary structural block for page regions
-//  --section-pad --section-bg --section-color
+//  --section-padding --section-background --section-color
 .section {
-   --_padding: var(--section-pad, var(--space-section));
-   --_bg: var(--section-bg, var(--page));
+   --_padding: var(--section-padding, var(--space-section));
+   --_bg: var(--section-background, var(--page));
    --_color: var(--section-color, var(--text));
    padding-block: var(--_padding);
    background-color: var(--_bg);

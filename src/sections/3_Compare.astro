@@ -20,7 +20,7 @@ const { data } = Astro.props as Props;
       {Object.values(data).map(comp => (
       <div class:list={['comp', comp.title.toLocaleLowerCase()]}>
          <div class="comp_head | stack">
-            <p>{comp.heading}</p>
+            <p class="note-font">{comp.heading}</p>
             <h2>{comp.title}</h2>
          </div>
          {comp.rows.map(row => (
@@ -52,12 +52,12 @@ const { data } = Astro.props as Props;
       padding-block: var(--size-2);
    }
    .comp_head p {
-      font-family: var(--font-note);
-      font-size: 2.5em;
+      font-size: var(--font-size-5);
       color: var(--second-t);
    }
    .comp_head h2 {
-      font-size: 3.5em;
+      font-size: var(--font-size-8);
+      color: var(--brand-t);
    }
    .row_point {
       font-weight: var(--font-weight-7);

@@ -67,13 +67,3 @@
 @keyframes beacon-spin {
    to { rotate:360deg; }
 }
-
-
-/*
-   ACCESSIBILITY
-*/
-@media(prefers-reduced-motion:reduce) {
-  .float{
-    animation:none;
-  }
-}

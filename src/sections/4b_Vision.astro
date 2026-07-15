@@ -1,4 +1,6 @@
 ---
+import VisionDiagram from '../assets/visionDiagram.astro';
+
 interface Props {
    data: {
       heading: string,
@@ -14,25 +16,24 @@ const { data } = Astro.props as Props;
    <div class="container stack">
       <h2>{data.heading}</h2>
       <p>{data.body}</p>
-      <div class="diagram placeholder">
-         <!-- TODO create diagram of centralized home -->
-      </div>
+      <!-- <div class="diagram placeholder"></div> -->
+      <VisionDiagram />
       <h3>{data.call}</h3>
    </div>
 </section>
 
 <style>
-.section {
-   text-align: center;
-}
-p {
-   max-inline-size: 100%;
-   text-wrap: balance;
-}
-.diagram {
-   inline-size: 70%;
-   block-size: 100%;
-   aspect-ratio: 16/9;
-   margin: auto;
-}
+   .section {
+      text-align: center;
+   }
+   p {
+      max-inline-size: 100%;
+      text-wrap: balance;
+   }
+   .diagram {
+      inline-size: 70%;
+      block-size: 100%;
+      aspect-ratio: 16/9;
+      margin: auto;
+   }
 </style>

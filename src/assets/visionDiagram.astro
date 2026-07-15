@@ -1,0 +1,161 @@
+---
+import { Icon } from "astro-icon/components";
+
+const nodes = [
+   {id:"home",label:"Your Site",
+      icon:"tabler:home",type:"hub",
+      x:50,y:50
+   },
+   {id:"blog",label:"Blog",
+      icon:"tabler:article",type:"content",
+      x:50,y:12
+   },
+   {id:"members",label:"Members",
+      icon:"tabler:users-group",type:"community",
+      x:74,y:25
+   },
+   {id:"portfolio",label:"Portfolio",
+      icon:"tabler:briefcase",type:"content",
+      x:86,y:48
+   },
+   {id:"shop",label:"Shop",
+      icon:"tabler:shopping-bag",type:"commerce",
+      x:29,y:24
+   },
+   {id:"newsletter",label:"Newsletter",
+      icon:"tabler:mail",type:"content",
+      x:74,y:68
+   },
+   {id:"events",label:"Events",
+      icon:"tabler:calendar-event",type:"community",
+      x:19,y:45
+   },
+   {id:"gallery",label:"Gallery",
+      icon:"tabler:photo",type:"content",
+      x:23,y:76
+   },
+];
+
+const links = [
+  ["home","blog"],["home","members"],["home","portfolio"],
+  ["home","shop"],["home","newsletter"],["home","events"],
+  ["home","gallery"],
+];
+
+const lookup = Object.fromEntries(nodes.map(node=>[node.id,node]));
+
+const lines = links.map(([from,to])=>({
+  a:lookup[from],
+  b:lookup[to],
+}));
+---
+
+<div class="vision-diagram">
+
+   <svg class="connections" viewBox="0 0 160 90" preserveAspectRatio="none" aria-hidden="true">
+     {lines.map(({a,b})=>(
+      <line x1={a.x * 1.6} y1={a.y * .9} x2={b.x * 1.6} y2={b.y * .9} /> ))}
+   </svg>
+
+   {nodes.map(node=>(
+   <div
+      class={`node ${node.type}`}
+      style={`--x:${node.x};--y:${node.y};`}
+   >
+      {node.type==="hub" && <div class="signal-glow"></div>}
+      <div class="bubble">
+         <Icon name={node.icon}/>
+         <span>{node.label}</span>
+      </div>
+   </div> ))}
+
+</div>
+
+<style>
+   .vision-diagram {
+     position: relative;
+     width: 100%;
+     aspect-ratio: 16/9;
+   }
+
+   .connections {
+     position: absolute;
+     inset: 0;
+     width: 100%;
+     height: 100%;
+     pointer-events: none;
+   }
+   .connections line {
+     stroke: var(--text-3);
+     stroke-width: .5;
+     opacity: .4;
+   }
+
+   .node {
+     position: absolute;
+     left: calc(var(--x) * 1%);
+     top: calc(var(--y) * 1%);
+     translate: -50% -50%;
+     z-index: 1;
+   }
+
+   .bubble {
+     position: relative;
+     display: flex;
+     align-items: center;
+     gap: .5rem;
+     padding: .75rem 1.1rem;
+     border: 1px solid color-mix(in srgb,var(--text-3) 40%,transparent);
+     border-radius: 999px;
+     background: var(--page);
+     color: var(--text);
+     white-space: nowrap;
+   }
+   .bubble svg {
+      width: 3rem;
+      height: 3rem;
+   }
+   .bubble span {
+     font-size: 1.1rem;
+     line-height: 1;
+   }
+
+   .content .bubble svg {
+     color: var(--violet-6);
+   }
+   .community .bubble svg {
+     color: var(--pink-6);
+   }
+   .commerce .bubble svg {
+     color: var(--green-6);
+   }
+
+   .hub {
+     z-index: 2;
+   }
+   .hub .bubble {
+     padding: 1.5rem 2rem 2.5rem;
+     flex-direction: column;
+     gap: .35rem;
+     border-radius: 100%;
+     color: var(--brand);
+   }
+   .hub .bubble svg {
+     width: 5rem;
+     height: 5rem;
+   }
+   .hub .bubble span {
+     font-size: 1.4rem;
+     font-weight: var(--font-weight-7);
+   }
+   .signal-glow {
+     position: absolute;
+     inset: -80%;
+     border-radius: 50%;
+     background: radial-gradient(
+         circle,
+         color-mix(in srgb,var(--brand) 45%,transparent),
+         transparent 70%);
+     z-index: -1;
+   }
+</style>

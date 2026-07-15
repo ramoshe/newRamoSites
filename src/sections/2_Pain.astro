@@ -1,5 +1,5 @@
 ---
-// import SocialVisual from '../assets/socialVisual.astro';
+import SocialVisual from '../assets/socialVisual.astro';
 
 type splitSection = {
    heading: string,
@@ -26,9 +26,8 @@ const { data } = Astro.props as Props;
       </div>
       <div class="visual | stack">
          <p>{data.visual.body}</p>
-         <div class="social-visual placeholder">
-            <!-- <SocialVisual /> -->
-         </div>
+         <!-- <div class="social-visual placeholder"></div> -->
+         <SocialVisual />
          <h3>{data.visual.heading}</h3>
       </div>
    </div>

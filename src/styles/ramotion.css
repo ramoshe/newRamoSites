@@ -1,0 +1,79 @@
+/*
+  Ambient floating animation
+*/
+.float {
+   animation: ramo-float
+      var(--duration,14s)
+      var(--delay,0s)
+      ease-in-out
+      infinite;
+}
+@keyframes ramo-float {
+  0% { translate:-14px -8px; rotate:-6deg; scale:.96; }
+  25% { translate:12px -16px; rotate:4deg; scale:1.03; }
+  50% { translate:18px 10px; rotate:8deg; scale:1.06; }
+  75%{ translate:-10px 16px; rotate:-3deg; scale:1; }
+  100% { translate:-14px -8px; rotate:-6deg; scale:.96; }
+}
+
+
+/*
+  Lighthouse signal animation
+*/
+:root{
+   --signal: var(--text);
+}
+.signal {
+   position:relative;
+   overflow:hidden;
+   animation:signal-pulse 5s ease-in-out infinite;
+}
+@keyframes signal-pulse {
+   0%,100% { opacity:.45; }
+   50% { opacity:1; }
+}
+
+.signal-glow {
+   position:absolute;
+   inset:5%;
+   border-radius:50%;
+   background: radial-gradient(
+      circle,
+      color-mix(in srgb, var(--signal) 80%, transparent),
+      color-mix(in srgb, var(--signal) 25%, transparent) 35%,
+      transparent 70%);
+   filter:blur(16px);
+   animation:signal-glow 6s ease-in-out infinite;
+}
+@keyframes signal-glow {
+   0%,100% { scale:.85; opacity:.45; filter:blur(10px); }
+   50% { scale:1.05; opacity:.8; filter:blur(18px); }
+}
+
+.signal-beacon {
+   position:absolute;
+   inset:1%;
+   border-radius:50%;
+   background: conic-gradient(
+      from 49deg,
+      transparent 0deg,
+      color-mix(in srgb, var(--signal) 8%, transparent) 12deg,
+      color-mix(in srgb, var(--signal) 35%, transparent) 35deg,
+      color-mix(in srgb, var(--signal) 8%, transparent) 55deg,
+      transparent 90deg);
+   animation:beacon-spin 7s linear infinite;
+   filter:blur(2px);
+}
+@keyframes beacon-spin {
+   to { rotate:360deg; }
+}
+
+
+/*
+   ACCESSIBILITY
+*/
+@media(prefers-reduced-motion:reduce) {
+  .float{
+    animation:none;
+  }
+}

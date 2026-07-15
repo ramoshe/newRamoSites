@@ -1,28 +1,93 @@
 ---
-import { Icon } from 'astro-icon/components';
+import { Icon } from "astro-icon/components";
+import "../styles/ramotion.css";
+
 
 const platforms = [
-  "instagram",
-  "ko-fi",
-  "kick",
-  "snapchat",
-  "onlyfans",
-  "logos:twitch",
-  "logos:facebook",
-  "logos:patreon",
-  "logos:bluesky",
-  "logos:youtube-icon",
-  "logos:discord-icon",
-  "logos:tiktok-icon",
-  "logos:threads-icon",
-  "logos:mastadon-icon",
+  {icon:"instagram",x:12,y:12,size:1,rotate:-8,opacity:.70,delay:"-3s",duration:"14s"},
+  {icon:"tiktok",x:37,y:10,size:1.05,rotate:6,opacity:.75,delay:"-9s",duration:"12s"},
+  {icon:"logos:youtube-icon",x:59,y:16,size:1.10,rotate:-4,opacity:.70,delay:"-7s",duration:"16s"},
+  {icon:"logos:discord-icon",x:75,y:47,size:1.10,rotate:8,opacity:.65,delay:"-12s",duration:"13s"},
+  {icon:"logos:patreon",x:92,y:60,size:1,rotate:-6,opacity:.60,delay:"-5s",duration:"15s"},
+  {icon:"ko-fi",x:64,y:77,size:.95,rotate:7,opacity:.65,delay:"-10s",duration:"13s"},
+  {icon:"kick",x:37,y:82,size:.75,rotate:-5,opacity:.75,delay:"-8s",duration:"17s"},
+  {icon:"logos:facebook",x:9,y:73,size:1.05,rotate:5,opacity:.55,delay:"-4s",duration:"12s"},
+  {icon:"snapchat",x:6,y:46,size:1,rotate:-8,opacity:.65,delay:"-14s",duration:"14s"},
+  {icon:"onlyfans",x:23,y:33,size:1.05,rotate:8,opacity:.70,delay:"-11s",duration:"16s"},
+  {icon:"logos:threads-icon",x:24,y:62,size:.95,rotate:-10,opacity:.55,delay:"-6s",duration:"13s"},
+  {icon:"logos:mastodon-icon",x:88,y:17,size:1.05,rotate:5,opacity:.60,delay:"-15s",duration:"18s"},
+  {icon:"logos:bluesky",x:76,y:11,size:.95,rotate:-6,opacity:.60,delay:"-2s",duration:"12s"},
+  {icon:"logos:twitch",x:80,y:84,size:1,rotate:7,opacity:.70,delay:"-13s",duration:"17s"},
 ];
 ---
 
-<div class="orbit">
-  {platforms.map((platform) => (
-    <div class="platform">
-      <Icon name={platform} />
-    </div>
-  ))}
+<div class="social-visual">
+
+   <div class="home-placeholder signal">
+      <span class="signal-glow"></span>
+      <span class="signal-beacon"></span>
+   </div>
+
+  {platforms.map(platform => (
+   <div
+      class="platform"
+      style={`
+        --x:${platform.x};
+        --y:${platform.y};
+        --size:${platform.size};
+        --rotate:${platform.rotate}deg;
+        --opacity:${platform.opacity};`}>
+      <div
+        class="motion float"
+        style={`
+          --delay:${platform.delay};
+          --duration:${platform.duration};`}>
+        <Icon name={platform.icon}/>
+      </div>
+   </div> ))}
+
 </div>
+
+<style>
+   .social-visual {
+      position:relative;
+      width:100%;
+      aspect-ratio:16/9;
+   }
+
+   .home-placeholder {
+      position:absolute;
+      inset:50% auto auto 50%;
+      width:28%;
+      aspect-ratio:1;
+      transform:translate(-50%,-50%);
+      border:2px dashed var(--text-3);
+      border-radius:50%;
+      opacity:.45;
+   }
+
+   .platform {
+      position:absolute;
+      left:calc(var(--x) * 1%);
+      top:calc(var(--y) * 1%);
+      opacity:var(--opacity);
+      transform:
+         translate(-50%,-50%)
+         rotate(var(--rotate))
+         scale(var(--size));
+      font-size:clamp(2rem,4vw,3.5rem);
+      filter:
+         drop-shadow(0 4px 10px rgb(0 0 0 /.08));
+   }
+
+   .motion {
+      width:1em;
+      height:1em;
+   }
+
+   .motion svg {
+      width:1em;
+      height:1em;
+      display:block;
+   }
+</style>

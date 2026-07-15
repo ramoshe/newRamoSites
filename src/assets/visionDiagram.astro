@@ -1,161 +1,189 @@
 ---
 import { Icon } from "astro-icon/components";
 
-const nodes = [
-   {id:"home",label:"Your Site",
-      icon:"tabler:home",type:"hub",
-      x:50,y:50
-   },
-   {id:"blog",label:"Blog",
-      icon:"tabler:article",type:"content",
-      x:50,y:12
-   },
-   {id:"members",label:"Members",
-      icon:"tabler:users-group",type:"community",
-      x:74,y:25
-   },
-   {id:"portfolio",label:"Portfolio",
-      icon:"tabler:briefcase",type:"content",
-      x:86,y:48
-   },
-   {id:"shop",label:"Shop",
-      icon:"tabler:shopping-bag",type:"commerce",
-      x:29,y:24
-   },
-   {id:"newsletter",label:"Newsletter",
-      icon:"tabler:mail",type:"content",
-      x:74,y:68
-   },
-   {id:"events",label:"Events",
-      icon:"tabler:calendar-event",type:"community",
-      x:19,y:45
-   },
-   {id:"gallery",label:"Gallery",
-      icon:"tabler:photo",type:"content",
-      x:23,y:76
-   },
+const pieces=[
+   {id:"home",label:"Your Site",icon:"tabler:home",category:"home",level:"hub",x:50,y:50},
+
+   {id:"blog",label:"Blog",icon:"tabler:article",category:"create",level:"primary",x:32,y:25},
+   {id:"members",label:"Members",icon:"tabler:users-group",category:"connect",level:"primary",x:68,y:27},
+   {id:"portfolio",label:"Portfolio",icon:"tabler:briefcase",category:"identity",level:"primary",x:31,y:70},
+   {id:"shop",label:"Shop",icon:"tabler:shopping-bag",category:"earn",level:"primary",x:69,y:70},
+
+   {id:"gallery",label:"Gallery",icon:"tabler:photo",category:"create",level:"secondary",x:16,y:43},
+   {id:"video",label:"Video",icon:"tabler:video",category:"create",level:"secondary",x:22,y:78},
+   {id:"podcast",label:"Podcast",icon:"tabler:microphone",category:"create",level:"secondary",x:44,y:15},
+
+   {id:"newsletter",label:"Newsletter",icon:"tabler:mail",category:"connect",level:"secondary",x:56,y:15},
+   {id:"events",label:"Events",icon:"tabler:calendar-event",category:"connect",level:"secondary",x:84,y:45},
+   {id:"contact",label:"Contact",icon:"tabler:address-book",category:"connect",level:"secondary",x:78,y:80},
+
+   {id:"about",label:"About",icon:"tabler:user",category:"identity",level:"secondary",x:17,y:62},
+   {id:"press",label:"Press Kit",icon:"tabler:news",category:"identity",level:"secondary",x:43,y:86},
+
+   {id:"courses",label:"Courses",icon:"tabler:school",category:"earn",level:"secondary",x:57,y:86},
+   {id:"downloads",label:"Downloads",icon:"tabler:download",category:"earn",level:"secondary",x:83,y:63},
 ];
 
-const links = [
-  ["home","blog"],["home","members"],["home","portfolio"],
-  ["home","shop"],["home","newsletter"],["home","events"],
-  ["home","gallery"],
-];
+const home:any=pieces.find(piece=>piece.level==="hub");
 
-const lookup = Object.fromEntries(nodes.map(node=>[node.id,node]));
-
-const lines = links.map(([from,to])=>({
-  a:lookup[from],
-  b:lookup[to],
-}));
+const connections=pieces
+   .filter(piece=>piece.level!=="hub")
+   .map(piece=>{
+      const dx=piece.x-home.x;
+      const dy=piece.y-home.y;
+      const distance=Math.sqrt(dx*dx+dy*dy);
+      const startOffset=8;
+      const endOffset=4;
+      const from={
+         x:home.x+(dx/distance)*startOffset,
+         y:home.y+(dy/distance)*startOffset
+      };
+      const to={
+         x:piece.x-(dx/distance)*endOffset,
+         y:piece.y-(dy/distance)*endOffset
+      };
+      const x1=from.x*1.6;
+      const y1=from.y*.9;
+      const x2=to.x*1.6;
+      const y2=to.y*.9;
+      const lineLength=Math.sqrt((x2-x1)**2+(y2-y1)**2);
+      const spacing=4;
+      const count=Math.max(2,Math.floor(lineLength/spacing));
+      const dots=Array.from(
+         {length:count},
+         (_,i)=>{
+            const progress=i/(count-1);
+            return{
+               x:x1+(x2-x1)*progress,
+               y:y1+(y2-y1)*progress
+            };
+         }
+      );
+      return{
+         level:piece.level,
+         dots
+      };
+   });
 ---
 
 <div class="vision-diagram">
 
-   <svg class="connections" viewBox="0 0 160 90" preserveAspectRatio="none" aria-hidden="true">
-     {lines.map(({a,b})=>(
-      <line x1={a.x * 1.6} y1={a.y * .9} x2={b.x * 1.6} y2={b.y * .9} /> ))}
+   <svg class="network" viewBox="0 0 160 90" aria-hidden="true">
+   {connections.map(connection=>connection.dots.map(dot=>(
+      <circle
+         class={connection.level}
+         cx={dot.x}
+         cy={dot.y}
+         r=".4"
+      /> )))}
    </svg>
 
-   {nodes.map(node=>(
+   {pieces.map(piece=>(
    <div
-      class={`node ${node.type}`}
-      style={`--x:${node.x};--y:${node.y};`}
+      class={`piece ${piece.category} ${piece.level}`}
+      style={`--x:${piece.x};--y:${piece.y};`}
    >
-      {node.type==="hub" && <div class="signal-glow"></div>}
-      <div class="bubble">
-         <Icon name={node.icon}/>
-         <span>{node.label}</span>
-      </div>
+      {piece.level==="hub"&&<div class="signal-glow"></div>}
+      <Icon name={piece.icon}/>
+      <span>{piece.label}</span>
    </div> ))}
 
 </div>
 
 <style>
-   .vision-diagram {
-     position: relative;
-     width: 100%;
-     aspect-ratio: 16/9;
+   .vision-diagram{
+      position:relative;
+      width:100%;
+      aspect-ratio:16/9;
    }
 
-   .connections {
-     position: absolute;
-     inset: 0;
-     width: 100%;
-     height: 100%;
-     pointer-events: none;
+   .network{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      pointer-events:none;
+      z-index:0;
    }
-   .connections line {
-     stroke: var(--text-3);
-     stroke-width: .5;
-     opacity: .4;
+   .network circle{
+      fill:var(--text-2);
+      opacity:.2;
    }
-
-   .node {
-     position: absolute;
-     left: calc(var(--x) * 1%);
-     top: calc(var(--y) * 1%);
-     translate: -50% -50%;
-     z-index: 1;
+   .network circle.primary{
+      opacity:.45;
+   }
+   .network circle.secondary{
+      opacity:.15;
    }
 
-   .bubble {
-     position: relative;
-     display: flex;
-     align-items: center;
-     gap: .5rem;
-     padding: .75rem 1.1rem;
-     border: 1px solid color-mix(in srgb,var(--text-3) 40%,transparent);
-     border-radius: 999px;
-     background: var(--page);
-     color: var(--text);
-     white-space: nowrap;
+   .piece{
+      position:absolute;
+      left:calc(var(--x) * 1%);
+      top:calc(var(--y) * 1%);
+      translate:-50% -50%;
+      display:flex;
+      align-items:center;
+      gap:.45rem;
+      z-index:1;
    }
-   .bubble svg {
-      width: 3rem;
-      height: 3rem;
+   .piece svg,
+   .piece span{
+      color:inherit;
    }
-   .bubble span {
-     font-size: 1.1rem;
-     line-height: 1;
+   .piece span{
+      white-space:nowrap;
+      line-height:1;
    }
 
-   .content .bubble svg {
-     color: var(--violet-6);
+   .primary{
+      opacity:1;
    }
-   .community .bubble svg {
-     color: var(--pink-6);
+   .secondary{
+      opacity:.6;
    }
-   .commerce .bubble svg {
-     color: var(--green-6);
+   .primary svg{
+      width:2.8rem;
+      height:2.8rem;
+   }
+   .primary span{
+      font-size:1.15rem;
+      font-weight:var(--font-weight-6);
+   }
+   .secondary svg{
+      width:2rem;
+      height:2rem;
+   }
+   .secondary span{
+      font-size:1rem;
    }
 
-   .hub {
-     z-index: 2;
+   .create{ color:var(--violet-6);}
+   .connect{color:var(--pink-6);}
+   .earn{ color:var(--green-6);}
+   .identity{ color:var(--second); }
+
+   .hub{
+      flex-direction:column;
+      gap:.35rem;
+      color:var(--brand);
+      z-index:2;
    }
-   .hub .bubble {
-     padding: 1.5rem 2rem 2.5rem;
-     flex-direction: column;
-     gap: .35rem;
-     border-radius: 100%;
-     color: var(--brand);
+   .hub svg{
+      width:5rem;
+      height:5rem;
    }
-   .hub .bubble svg {
-     width: 5rem;
-     height: 5rem;
+   .hub span{
+      font-size:1.35rem;
+      font-weight:var(--font-weight-7);
    }
-   .hub .bubble span {
-     font-size: 1.4rem;
-     font-weight: var(--font-weight-7);
-   }
-   .signal-glow {
-     position: absolute;
-     inset: -80%;
-     border-radius: 50%;
-     background: radial-gradient(
+   .signal-glow{
+      position:absolute;
+      inset:-35%;
+      border-radius:50%;
+      background:radial-gradient(
          circle,
          color-mix(in srgb,var(--brand) 45%,transparent),
          transparent 70%);
-     z-index: -1;
+      z-index:-1;
    }
 </style>

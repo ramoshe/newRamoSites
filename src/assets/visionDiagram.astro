@@ -1,67 +1,92 @@
 ---
 import { Icon } from "astro-icon/components";
 
-const pieces=[
-   {id:"home",label:"Your Site",icon:"tabler:home",category:"home",level:"hub",x:50,y:50},
+const pieces = [
+   { id:"home",label:"Your Site",icon:"tabler:home",
+      category:"home",level:"hub",
+      x:50,y:50 },
 
-   {id:"blog",label:"Blog",icon:"tabler:article",category:"create",level:"primary",x:32,y:25},
-   {id:"members",label:"Members",icon:"tabler:users-group",category:"connect",level:"primary",x:68,y:27},
-   {id:"portfolio",label:"Portfolio",icon:"tabler:briefcase",category:"identity",level:"primary",x:31,y:70},
-   {id:"shop",label:"Shop",icon:"tabler:shopping-bag",category:"earn",level:"primary",x:69,y:70},
+   { id:"blog",label:"Blog",icon:"tabler:article",
+      category:"create",level:"primary",
+      x:32,y:25 },
+   { id:"members",label:"Members",icon:"tabler:users-group",
+      category:"connect",level:"primary",
+      x:68,y:27 },
+   { id:"portfolio",label:"Portfolio",icon:"tabler:briefcase",
+      category:"identity",level:"primary",
+      x:31,y:80 },
+   { id:"shop",label:"Shop",icon:"tabler:shopping-bag",
+      category:"earn",level:"primary",
+      x:69,y:80 },
 
-   {id:"gallery",label:"Gallery",icon:"tabler:photo",category:"create",level:"secondary",x:16,y:43},
-   {id:"video",label:"Video",icon:"tabler:video",category:"create",level:"secondary",x:22,y:78},
-   {id:"podcast",label:"Podcast",icon:"tabler:microphone",category:"create",level:"secondary",x:44,y:15},
+   { id:"gallery",label:"Gallery",icon:"tabler:photo",
+      category:"create",level:"secondary",
+      x:16,y:43 },
+   { id:"video",label:"Video",icon:"tabler:video",
+      category:"create",level:"secondary",
+      x:22,y:78 },
+   { id:"podcast",label:"Podcast",icon:"tabler:microphone",
+      category:"create",level:"secondary",
+      x:44,y:15 },
 
-   {id:"newsletter",label:"Newsletter",icon:"tabler:mail",category:"connect",level:"secondary",x:56,y:15},
-   {id:"events",label:"Events",icon:"tabler:calendar-event",category:"connect",level:"secondary",x:84,y:45},
-   {id:"contact",label:"Contact",icon:"tabler:address-book",category:"connect",level:"secondary",x:78,y:80},
+   { id:"newsletter",label:"Newsletter",icon:"tabler:mail",
+      category:"connect",level:"secondary",
+      x:56,y:15 },
+   { id:"events",label:"Events",icon:"tabler:calendar-event",
+      category:"connect",level:"secondary",
+      x:84,y:45 },
+   { id:"contact",label:"Contact",icon:"tabler:address-book",
+      category:"connect",level:"secondary",
+      x:78,y:80 },
 
-   {id:"about",label:"About",icon:"tabler:user",category:"identity",level:"secondary",x:17,y:62},
-   {id:"press",label:"Press Kit",icon:"tabler:news",category:"identity",level:"secondary",x:43,y:86},
+   { id:"about",label:"About",icon:"tabler:user",
+      category:"identity",level:"secondary",
+      x:17,y:62 },
+   { id:"press",label:"Press Kit",icon:"tabler:news",
+      category:"identity",level:"secondary",
+      x:43,y:86 },
 
-   {id:"courses",label:"Courses",icon:"tabler:school",category:"earn",level:"secondary",x:57,y:86},
-   {id:"downloads",label:"Downloads",icon:"tabler:download",category:"earn",level:"secondary",x:83,y:63},
+   { id:"courses",label:"Courses",icon:"tabler:school",
+      category:"earn",level:"secondary",
+      x:57,y:86 },
+   { id:"downloads",label:"Downloads",icon:"tabler:download",
+      category:"earn",level:"secondary",
+      x:83,y:63 },
 ];
 
-const home:any=pieces.find(piece=>piece.level==="hub");
+const home:any = pieces.find(piece=>piece.level==="hub");
 
-const connections=pieces
+const connections = pieces
    .filter(piece=>piece.level!=="hub")
-   .map(piece=>{
+   .map((piece,c)=>{
       const dx=piece.x-home.x;
       const dy=piece.y-home.y;
-      const distance=Math.sqrt(dx*dx+dy*dy);
-      const startOffset=8;
-      const endOffset=4;
-      const from={
-         x:home.x+(dx/distance)*startOffset,
-         y:home.y+(dy/distance)*startOffset
-      };
-      const to={
-         x:piece.x-(dx/distance)*endOffset,
-         y:piece.y-(dy/distance)*endOffset
-      };
+      const distance=Math.hypot(dx,dy);
+      const from = {
+         x:home.x+(dx/distance)*8,
+         y:home.y+(dy/distance)*8 };
+      const to = {
+         x:piece.x-(dx/distance)*5,
+         y:piece.y-(dy/distance)*5 };
       const x1=from.x*1.6;
       const y1=from.y*.9;
       const x2=to.x*1.6;
       const y2=to.y*.9;
-      const lineLength=Math.sqrt((x2-x1)**2+(y2-y1)**2);
-      const spacing=4;
-      const count=Math.max(2,Math.floor(lineLength/spacing));
-      const dots=Array.from(
-         {length:count},
-         (_,i)=>{
-            const progress=i/(count-1);
-            return{
-               x:x1+(x2-x1)*progress,
-               y:y1+(y2-y1)*progress
-            };
-         }
-      );
-      return{
+      const count=Math.max(5,
+         Math.floor(Math.hypot(x2-x1,y2-y1)/4) );
+      const path=[
+         ...Array.from({length:count},(_,i)=>i),
+         ...Array.from({length:count-2},(_,i)=>count-2-i) ];
+      return {
          level:piece.level,
-         dots
+         dots:path.map((position,i)=>{
+            const progress = position/(count-1);
+            return {
+               x:x1+(x2-x1)*progress,
+               y:y1+(y2-y1)*progress,
+               delay:c*1.2+i*.18
+            };
+         })
       };
    });
 ---
@@ -69,13 +94,15 @@ const connections=pieces
 <div class="vision-diagram">
 
    <svg class="network" viewBox="0 0 160 90" aria-hidden="true">
-   {connections.map(connection=>connection.dots.map(dot=>(
+   {connections.map(connection=>
+      connection.dots.map(dot=>(
       <circle
          class={connection.level}
          cx={dot.x}
          cy={dot.y}
          r=".4"
-      /> )))}
+         style={`--delay:${dot.delay}s`}
+      /> )) )}
    </svg>
 
    {pieces.map(piece=>(
@@ -84,106 +111,102 @@ const connections=pieces
       style={`--x:${piece.x};--y:${piece.y};`}
    >
       {piece.level==="hub"&&<div class="signal-glow"></div>}
-      <Icon name={piece.icon}/>
+      <div class="piece-icon">
+         <Icon name={piece.icon}/>
+      </div>
       <span>{piece.label}</span>
    </div> ))}
 
 </div>
 
 <style>
-   .vision-diagram{
-      position:relative;
-      width:100%;
-      aspect-ratio:16/9;
+   .vision-diagram {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/9;
    }
 
-   .network{
-      position:absolute;
-      inset:0;
-      width:100%;
-      height:100%;
-      pointer-events:none;
-      z-index:0;
+   .network {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
    }
-   .network circle{
-      fill:var(--text-2);
-      opacity:.2;
+   .network circle {
+      fill: var(--text-2);
+      opacity: .2;
    }
-   .network circle.primary{
-      opacity:.45;
+   .network circle.primary { opacity: .45; }
+   .network circle.secondary { opacity: .15; }
+
+   .piece {
+      position: absolute;
+      left: calc(var(--x) * 1%);
+      top: calc(var(--y) * 1%);
+      translate: -50% -50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .35rem;
+      z-index: 1;
+      color: inherit;
    }
-   .network circle.secondary{
-      opacity:.15;
+   .piece span {
+      white-space: nowrap;
+      line-height: 1;
+   }
+   .piece-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
    }
 
-   .piece{
-      position:absolute;
-      left:calc(var(--x) * 1%);
-      top:calc(var(--y) * 1%);
-      translate:-50% -50%;
-      display:flex;
-      align-items:center;
-      gap:.45rem;
-      z-index:1;
+   .primary { opacity: 1; }
+   .secondary { opacity: .6; }
+   .primary svg {
+      width: 2.8rem;
+      height: 2.8rem;
    }
-   .piece svg,
-   .piece span{
-      color:inherit;
+   .primary span {
+      font-size: 1.15rem;
+      font-weight: var(--font-weight-6);
    }
-   .piece span{
-      white-space:nowrap;
-      line-height:1;
+   .secondary svg {
+      width: 2rem;
+      height: 2rem;
    }
-
-   .primary{
-      opacity:1;
-   }
-   .secondary{
-      opacity:.6;
-   }
-   .primary svg{
-      width:2.8rem;
-      height:2.8rem;
-   }
-   .primary span{
-      font-size:1.15rem;
-      font-weight:var(--font-weight-6);
-   }
-   .secondary svg{
-      width:2rem;
-      height:2rem;
-   }
-   .secondary span{
-      font-size:1rem;
+   .secondary span {
+      font-size: 1rem;
    }
 
-   .create{ color:var(--violet-6);}
-   .connect{color:var(--pink-6);}
-   .earn{ color:var(--green-6);}
-   .identity{ color:var(--second); }
+   .create { color: var(--violet-6);}
+   .connect {color: var(--pink-6);}
+   .earn { color: var(--green-6);}
+   .identity { color: var(--second); }
 
-   .hub{
-      flex-direction:column;
-      gap:.35rem;
-      color:var(--brand);
-      z-index:2;
+   .hub {
+      flex-direction: column;
+      gap: .35rem;
+      color: var(--brand);
+      z-index: 2;
    }
-   .hub svg{
-      width:5rem;
-      height:5rem;
+   .hub svg {
+      width: 5rem;
+      height: 5rem;
    }
-   .hub span{
-      font-size:1.35rem;
-      font-weight:var(--font-weight-7);
+   .hub span {
+      font-size: 1.35rem;
+      font-weight: var(--font-weight-7);
    }
-   .signal-glow{
-      position:absolute;
-      inset:-35%;
-      border-radius:50%;
-      background:radial-gradient(
-         circle,
+   .signal-glow {
+      position: absolute;
+      inset: -35%;
+      border-radius: 50%;
+      background: radial-gradient(circle,
          color-mix(in srgb,var(--brand) 45%,transparent),
          transparent 70%);
-      z-index:-1;
+      z-index: -1;
    }
 </style>

@@ -13,27 +13,50 @@ const { data } = Astro.props as Props;
 ---
 
 <section id="vision" class="section">
-   <div class="container stack">
-      <h2>{data.heading}</h2>
-      <p>{data.body}</p>
-      <!-- <div class="diagram placeholder"></div> -->
-      <VisionDiagram />
-      <h3>{data.call}</h3>
+   <div class="container grid">
+      <div class="flow copy">
+         <h2>{data.heading}</h2>
+         <p>{data.body}</p>
+         <h3 class="call">{data.call}</h3>
+      </div>
+      <div class="visual">
+         <VisionDiagram />
+      </div>
    </div>
 </section>
 
 <style>
-   .section {
-      text-align: center;
+   .grid {
+      --grid-columns:1fr 1.5fr;
+      grid-template-areas:"copy visual";
+      align-items:center;
    }
+   .copy { grid-area:copy; }
+   .visual { grid-area:visual; }
+
    p {
-      max-inline-size: 100%;
-      text-wrap: balance;
+      max-inline-size:100%;
+      text-wrap:balance;
    }
-   .diagram {
-      inline-size: 70%;
-      block-size: 100%;
-      aspect-ratio: 16/9;
-      margin: auto;
+
+   .call {
+      margin-block-start: var(--size-9);
+   }
+
+   @media (max-width: 600px) {
+      .section { text-align: center; }
+      .grid {
+         --grid-columns: 1fr;
+         grid-template-areas:
+            "heading"
+            "body"
+            "visual"
+            "call";
+      }
+      .copy { display: contents; }
+      h2 { grid-area: heading; }
+      p { grid-area: body; }
+      .visual { grid-area: visual; }
+      .call { grid-area: call; }
    }
 </style>

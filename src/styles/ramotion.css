@@ -20,10 +20,8 @@
 /*
   Lighthouse signal animation
 */
-:root{
-   --signal: var(--text);
-}
 .signal {
+   --signal: var(--text);
    position:relative;
    overflow:hidden;
    animation:signal-pulse 5s ease-in-out infinite;

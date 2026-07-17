@@ -2,73 +2,62 @@
 import { Icon } from "astro-icon/components";
 
 const pieces = [
-   { id:"your site",icon:"home",type:"Home",size:"hub", x:50,y:50 },
-   // Identity
-   { id:"portfolio",icon:"briefcase",type:"identity",size:"big", x:37,y:31 },
-   { id:"about",icon:"user",type:"identity",size:"medium", x:26,y:55 },
-   { id:"reviews",icon:"stars",type:"identity",size:"small", x:14,y:76 },
-   // Create
-   { id:"blog",icon:"article",type:"create",size:"big", x:50,y:18 },
-   { id:"gallery",icon:"photo",type:"create",size:"medium", x:22,y:34 },
-   { id:"video",icon:"video",type:"create",size:"medium", x:78,y:34 },
-   { id:"news",icon:"news",type:"create",size:"small", x:35,y:10 },
-   { id:"updates",icon:"bell",type:"create",size:"small", x:65,y:10 },
-   { id:"resources",icon:"book",type:"create",size:"small", x:17,y:20 },
-   { id:"artwork",icon:"palette",type:"create",size:"small", x:20,y:87 },
-   { id:"music",icon:"music",type:"create",size:"small", x:80,y:87 },
-   { id:"podcast",icon:"microphone",type:"create",size:"small", x:50,y:95 },
-   // Connect
-   { id:"members",icon:"users-group",type:"connect",size:"big", x:63,y:31 },
-   { id:"contact",icon:"address-book",type:"connect",size:"medium", x:82,y:56 },
-   { id:"email",icon:"mail",type:"connect",size:"medium", x:74,y:16 },
-   { id:"events",icon:"calendar-event",type:"connect",size:"medium", x:89,y:42 },
-   { id:"booking",icon:"calendar-time",type:"connect",size:"small", x:89,y:73 },
-   { id:"chat",icon:"messages",type:"connect",size:"small", x:95,y:58 },
-   // Earn
-   { id:"shop",icon:"shopping-bag",type:"earn",size:"big", x:63,y:69 },
-   { id:"courses",icon:"school",type:"earn",size:"medium", x:51,y:88 },
-   { id:"downloads",icon:"download",type:"earn",size:"small", x:65,y:97 },
-   { id:"donations",icon:"heart-handshake",type:"earn",size:"small", x:82,y:92 },
+   {id:"your site", x:50,y:50 ,icon:"home",type:"Home",size:"hub"},
+   // Identity (choco)
+   {id:"portfolio", x:63,y:31 ,icon:"briefcase",type:"identity",size:"big"},
+   {id:"about", x:26,y:65 ,icon:"user",type:"identity",size:"medium"},
+   {id:"reviews", x:84,y:36 ,icon:"stars",type:"identity",size:"small"},
+   // Create (violet)
+   {id:"blog", x:68,y:69 ,icon:"article",type:"create",size:"big"},
+   {id:"gallery", x:28,y:20 ,icon:"photo",type:"create",size:"medium"},
+   {id:"video", x:73,y:42 ,icon:"video",type:"create",size:"medium"},
+   {id:"news", x:35,y:10 ,icon:"news",type:"create",size:"small"},
+   {id:"updates", x:65,y:10 ,icon:"bell",type:"create",size:"small"},
+   {id:"resources",x:17,y:20 ,icon:"book",type:"create",size:"small"},
+   {id:"artwork",x:17,y:77 ,icon:"palette",type:"create",size:"small"},
+   {id:"music",x:80,y:87 ,icon:"music",type:"create",size:"small"},
+   {id:"podcast",x:50,y:95 ,icon:"microphone",type:"create",size:"small"},
+   // Connect (pink)
+   {id:"members", x:30,y:40 ,icon:"users-group",type:"connect",size:"big"},
+   {id:"contact", x:80,y:56 ,icon:"address-book",type:"connect",size:"medium"},
+   {id:"email", x:58,y:16 ,icon:"mail",type:"connect",size:"medium"},
+   {id:"events", x:42,y:78 ,icon:"calendar-event",type:"connect",size:"medium"},
+   {id:"booking", x:12,y:53 ,icon:"calendar-time",type:"connect",size:"small"},
+   {id:"chat", x:85,y:68 ,icon:"messages",type:"connect",size:"small"},
+   // Earn (green)
+   {id:"shop", x:40,y:18 ,icon:"shopping-bag",type:"earn",size:"big"},
+   {id:"courses", x:30,y:78 ,icon:"school",type:"earn",size:"medium"},
+   {id:"downloads", x:60,y:87 ,icon:"download",type:"earn",size:"small"},
+   {id:"donations", x:82,y:22 ,icon:"heart-handshake",type:"earn",size:"small"},
 ];
 const sizes:any = {
-   hub: { radius:0, opacity:1, iconSize:"5rem", labelSize:"1.35rem", },
-   big: { radius:.8, opacity:1, iconSize:"3.2rem", labelSize:"1.2rem", },
-   medium: { radius:.5, opacity:.82, iconSize:"2.5rem", labelSize:"1.08rem", },
-   small: { radius:.3, opacity:.65, iconSize:"1.8rem", labelSize:".92rem", },
+   hub: { radius:0, opacity:1, iconSize:"5rem", labelSize:"1.2rem", },
+   big: { radius:.9, opacity:1, iconSize:"3.2rem", labelSize:"1.2rem", },
+   medium: { radius:.7, opacity:.82, iconSize:"2.5rem", labelSize:"1.08rem", },
+   small: { radius:.5, opacity:.65, iconSize:"1.8rem", labelSize:".92rem", },
 };
-const styledPieces = pieces.map(piece => ({
-   ...piece,
-   ...sizes[piece.size],
-}));
+const network = { hubOffset:10, pieceOffset:5, dotSpacing:2.5, minDots:3,
+   connectionDelay:1.2, dotDelay:.2, };
 
+const pingPong = (count: number) => [...Array.from({length:count},(_,i)=>i),
+   ...Array.from({length:count-2},(_,i)=>count-2-i) ];
+const styledPieces = pieces.map(piece => ({ ...piece, ...sizes[piece.size], }));
 const home:any = styledPieces.find(piece=>piece.size==="hub");
 
-const network = { hubOffset: 8, pieceOffset: 5, dotSpacing: 4, minDots: 5,
-   scaleX: 1.6, scaleY: .9, connectionDelay: 1.2, dotDelay: .2,
-};
-
-const pingPong = (count: number) => [
-   ...Array.from({length:count},(_,i)=>i),
-   ...Array.from({length:count-2},(_,i)=>count-2-i)
-];
-
-const connections = styledPieces
-   .filter(piece=>piece.size!=="hub")
+const connections = styledPieces.filter(piece=>piece.size!=="hub")
    .map((piece,c)=>{
       const dx = piece.x-home.x;
       const dy = piece.y-home.y;
-      const distance=Math.hypot(dx,dy);
-      const startX = (home.x+(dx/distance)*network.hubOffset)*network.scaleX;
-      const startY = (home.y+(dy/distance)*network.hubOffset)*network.scaleY;
-      const endX = (piece.x-(dx/distance)*network.pieceOffset)*network.scaleX;
-      const endY = (piece.y-(dy/distance)*network.pieceOffset)*network.scaleY;
+      const distance = Math.hypot(dx,dy);
+      const startX = (home.x+(dx/distance)*network.hubOffset);
+      const startY = (home.y+(dy/distance)*network.hubOffset);
+      const endX = (piece.x-(dx/distance)*network.pieceOffset);
+      const endY = (piece.y-(dy/distance)*network.pieceOffset);
       const count = Math.max(network.minDots,
-         Math.floor(Math.hypot(endX-startX,endY-startY) / network.dotSpacing));
+         Math.floor(Math.hypot(endX-startX,endY-startY)/network.dotSpacing));
       const path = pingPong(count);
       return {
-         color: piece.type,
-         size: piece.size,
-         radius: piece.radius,
+         color: piece.type, size: piece.size, radius: piece.radius,
          dots: path.map((position,i)=>{
             const progress=position/(count-1);
             return {
@@ -81,9 +70,8 @@ const connections = styledPieces
 
 <div class="vision-diagram">
 
-   <svg class="network" viewBox="0 0 160 90" aria-hidden="true">
-   {connections.map(connection=>
-      connection.dots.map(dot=>(
+   <svg class="network" aria-hidden="true" viewBox={`0 0 100 100`}>
+      {connections.map(connection => connection.dots.map(dot => (
       <circle class={`${connection.size} ${dot.direction} ${connection.color}`}
          r={connection.radius} cx={dot.x} cy={dot.y}
          style={`--delay:${dot.delay}s`}
@@ -91,18 +79,12 @@ const connections = styledPieces
    </svg>
 
    {styledPieces.map(piece=>(
-   <div
-      class={`piece ${piece.type} ${piece.size}`}
-      style={`--x:${piece.x}; --y:${piece.y};
-         --icon-size:${piece.iconSize};
-         --label-size:${piece.labelSize};
-         --opacity:${piece.opacity};
-      `}
+   <div class={`piece ${piece.type} ${piece.size}`}
+      style={`--x:${piece.x}; --y:${piece.y}; --opacity:${piece.opacity};
+         --icon-size:${piece.iconSize}; --label-size:${piece.labelSize};`}
    >
       {piece.size==="hub"&&<div class="signal-glow"></div>}
-      <div class="piece-icon">
-         <Icon name={`tabler:${piece.icon}`} />
-      </div>
+      <Icon name={`tabler:${piece.icon}`} />
       <span>{piece.id}</span>
    </div> ))}
 
@@ -112,21 +94,9 @@ const connections = styledPieces
    .vision-diagram {
       position: relative;
       width: 100%;
-      aspect-ratio: 16/9;
+      aspect-ratio: 1;
+      --scale: 1;
    }
-
-   .network {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 0;
-   }
-   .network circle { fill: var(--text-2); opacity: .12; }
-   .network circle.big { r: .8; opacity: .45; }
-   .network circle.medium { r: .5; opacity: .3; }
-   .network circle.small { r: .3; opacity: .18; }
 
    .piece {
       position: absolute;
@@ -142,24 +112,18 @@ const connections = styledPieces
       opacity: var(--opacity);
    }
    .piece svg {
-      width: var(--icon-size);
-      height: var(--icon-size);
+      width: calc(var(--icon-size) * var(--scale));
+      height: calc(var(--icon-size) * var(--scale));
    }
    .piece span {
+      font-size: calc(var(--label-size) * var(--scale));
       white-space: nowrap;
       line-height: 1;
       text-transform: capitalize;
-      font-size: var(--label-size);
    }
-   .piece-icon {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-   }
-
-   .create { color: var(--violet-6);}
-   .connect {color: var(--pink-6);}
-   .earn { color: var(--green-6);}
+   .create { color: var(--violet-6); }
+   .connect { color: var(--pink-6); }
+   .earn { color: var(--green-6); }
    .identity { color: var(--second); }
 
    .hub {
@@ -168,15 +132,20 @@ const connections = styledPieces
       color: var(--brand);
       z-index: 2;
    }
-   .hub svg { width: 5rem; height: 5rem; }
-   .hub span { font-size: 1.35rem; font-weight: var(--font-weight-7); }
-   .signal-glow {
-      position: absolute;
-      inset: -35%;
-      border-radius: 50%;
-      background: radial-gradient(circle,
-         color-mix(in srgb,var(--brand) 45%,transparent),
-         transparent 70%);
-      z-index: -1;
+   .signal-glow { --signal:var(--brand); inset:-40%; z-index -1; }
+
+   .network {
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      pointer-events:none;
+      z-index:0;
+      overflow:visible;
+   }
+
+   @media (max-width: 600px) {
+      .vision-diagram { --scale:.7; }
+      .piece { gap:.2rem; }
    }
 </style>

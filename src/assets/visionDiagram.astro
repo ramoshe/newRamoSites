@@ -2,39 +2,45 @@
 import { Icon } from "astro-icon/components";
 
 const pieces = [
-   {id:"your site", x:50,y:50 ,icon:"home",type:"Home",size:"hub"},
-   // Identity (choco)
-   {id:"portfolio", x:63,y:31 ,icon:"briefcase",type:"identity",size:"big"},
-   {id:"about", x:26,y:65 ,icon:"user",type:"identity",size:"medium"},
-   {id:"reviews", x:84,y:36 ,icon:"stars",type:"identity",size:"small"},
-   // Create (violet)
-   {id:"blog", x:68,y:69 ,icon:"article",type:"create",size:"big"},
-   {id:"gallery", x:28,y:20 ,icon:"photo",type:"create",size:"medium"},
-   {id:"video", x:73,y:42 ,icon:"video",type:"create",size:"medium"},
-   {id:"news", x:35,y:10 ,icon:"news",type:"create",size:"small"},
-   {id:"updates", x:65,y:10 ,icon:"bell",type:"create",size:"small"},
-   {id:"resources",x:17,y:20 ,icon:"book",type:"create",size:"small"},
-   {id:"artwork",x:17,y:77 ,icon:"palette",type:"create",size:"small"},
-   {id:"music",x:80,y:87 ,icon:"music",type:"create",size:"small"},
-   {id:"podcast",x:50,y:95 ,icon:"microphone",type:"create",size:"small"},
-   // Connect (pink)
-   {id:"members", x:30,y:40 ,icon:"users-group",type:"connect",size:"big"},
-   {id:"contact", x:80,y:56 ,icon:"address-book",type:"connect",size:"medium"},
-   {id:"email", x:58,y:16 ,icon:"mail",type:"connect",size:"medium"},
-   {id:"events", x:42,y:78 ,icon:"calendar-event",type:"connect",size:"medium"},
-   {id:"booking", x:12,y:53 ,icon:"calendar-time",type:"connect",size:"small"},
-   {id:"chat", x:85,y:68 ,icon:"messages",type:"connect",size:"small"},
-   // Earn (green)
-   {id:"shop", x:40,y:18 ,icon:"shopping-bag",type:"earn",size:"big"},
-   {id:"courses", x:30,y:78 ,icon:"school",type:"earn",size:"medium"},
-   {id:"downloads", x:60,y:87 ,icon:"download",type:"earn",size:"small"},
-   {id:"donations", x:82,y:22 ,icon:"heart-handshake",type:"earn",size:"small"},
+   {id:  "your site",   x:50,y:50,   icon:"home",       type:"Home",      size:"hub"},
+//-IDENTITY -orange
+   {id:  "portfolio",   x:63,y:31,   icon:"briefcase",  type:"identity",  size:"big"},
+   {id:  "socials",     x:15,y:45,   icon:"share",      type:"identity",  size:"big"},
+   {id:  "about",       x:26,y:65,   icon:"user",       type:"identity",  size:"medium"},
+   {id:  "press",       x:90,y:50,   icon:"news",       type:"identity",  size:"medium"},
+   {id:  "profile",     x:72,y:15,   icon:"id",         type:"identity",  size:"small"},
+   {id:  "reviews",     x:84,y:36,   icon:"stars",      type:"identity",  size:"small"},
+   {id:  "resume",      x:15,y:90,   icon:"file",       type:"identity",  size:"small"},
+//-CREATE -violet
+   {id:  "blog",        x:68,y:69,   icon:"article",    type:"create",    size:"big"},
+   {id:  "gallery",     x:28,y:20,   icon:"photo",      type:"create",    size:"big"},
+   {id:  "video",       x:73,y:42,   icon:"video",      type:"create",    size:"medium"},
+   {id:  "updates",     x:65,y:10,   icon:"bell",       type:"create",    size:"medium"},
+   {id:  "artwork",     x:17,y:77,   icon:"palette",    type:"create",    size:"small"},
+   {id:  "music",       x:80,y:87,   icon:"music",      type:"create",    size:"small"},
+   {id:  "podcast",     x:50,y:95,   icon:"microphone", type:"create",    size:"small"},
+//-CONNECT -pink
+   {id:  "members",     x:30,y:40,   icon:"affiliate",  type:"connect",   size:"big"},
+   {id:  "email",       x:58,y:16,   icon:"mail",       type:"connect",   size:"big"},
+   {id:  "contact",     x:80,y:56,   icon:"send",       type:"connect",   size:"medium"},
+   {id:  "events",      x:42,y:78,   icon:"calendar",   type:"connect",   size:"medium"},
+   {id:  "booking",     x:12,y:53,   icon:"clock",      type:"connect",   size:"small"},
+   {id:  "chat",        x:85,y:68,   icon:"messages",   type:"connect",   size:"small"},
+   {id:  "livestream",  x:92,y:15,   icon:"broadcast",  type:"connect",   size:"small"},
+//-EARN -green
+   {id:  "shop",        x:40,y:18,   icon:"basket",     type:"earn",      size:"big"},
+   {id:  "merch",       x:18,y:30,   icon:"shirt",      type:"earn",      size:"big"},
+   {id:  "premium",     x:75,y:75,   icon:"lock",       type:"earn",      size:"medium"},
+   {id:  "donations",   x:82,y:22,   icon:"heart",      type:"earn",      size:"medium"},
+   {id:  "courses",     x:30,y:78,   icon:"school",     type:"earn",      size:"small"},
+   {id:  "downloads",   x:60,y:87,   icon:"download",   type:"earn",      size:"small"},
+   {id:  "services",    x:88,y:82,   icon:"briefcase",  type:"earn",      size:"small"},
 ];
 const sizes:any = {
-   hub: { radius:0, opacity:1, iconSize:"5rem", labelSize:"1.2rem", },
-   big: { radius:.9, opacity:1, iconSize:"3.2rem", labelSize:"1.2rem", },
-   medium: { radius:.7, opacity:.82, iconSize:"2.5rem", labelSize:"1.08rem", },
-   small: { radius:.5, opacity:.65, iconSize:"1.8rem", labelSize:".92rem", },
+   hub: { radius:0, opacity:1, iconSize:"7rem", labelSize:"1.5rem", },
+   big: { radius:.9, opacity:1, iconSize:"3rem", labelSize:"1rem", },
+   medium: { radius:.7, opacity:.82, iconSize:"2.5rem", labelSize:".9rem", },
+   small: { radius:.5, opacity:.65, iconSize:"2rem", labelSize:".8rem", },
 };
 const network = { hubOffset:10, pieceOffset:5, dotSpacing:2.5, minDots:3,
    connectionDelay:1.2, dotDelay:.2, };
@@ -83,7 +89,7 @@ const connections = styledPieces.filter(piece=>piece.size!=="hub")
       style={`--x:${piece.x}; --y:${piece.y}; --opacity:${piece.opacity};
          --icon-size:${piece.iconSize}; --label-size:${piece.labelSize};`}
    >
-      {piece.size==="hub"&&<div class="signal-glow"></div>}
+      {piece.size === "hub" && <div class="signal-glow"></div> }
       <Icon name={`tabler:${piece.icon}`} />
       <span>{piece.id}</span>
    </div> ))}
@@ -96,6 +102,7 @@ const connections = styledPieces.filter(piece=>piece.size!=="hub")
       width: 100%;
       aspect-ratio: 1;
       --scale: 1;
+      border: 1px solid var(--page-1);
    }
 
    .piece {
@@ -121,27 +128,29 @@ const connections = styledPieces.filter(piece=>piece.size!=="hub")
       line-height: 1;
       text-transform: capitalize;
    }
+
    .create { color: var(--violet-6); }
    .connect { color: var(--pink-6); }
    .earn { color: var(--green-6); }
-   .identity { color: var(--second); }
+   .identity { color: var(--orange-6); }
 
    .hub {
       flex-direction: column;
       gap: .35rem;
-      color: var(--brand);
-      z-index: 2;
+      color: var(--brand-t);
+      z-index: 2 !important;
    }
-   .signal-glow { --signal:var(--brand); inset:-40%; z-index -1; }
+   .signal-glow {
+      --signal:var(--brand-pp);
+      inset:-140%;
+      z-index:-3;
+   }
 
    .network {
       position:absolute;
       inset:0;
       width:100%;
       height:100%;
-      pointer-events:none;
-      z-index:0;
-      overflow:visible;
    }
 
    @media (max-width: 600px) {

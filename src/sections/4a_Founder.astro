@@ -52,27 +52,15 @@ const { data } = Astro.props as Props;
    }
 
    @container (max-width: 60rem) {
-      .grid {
-         --grid-columns: 1fr 1fr;
-      }
-      .hello svg {
-         padding-inline: var(--size-fluid-5);
-      }
-      .image {
-         grid-column: 1 / -1;
-         justify-self: center;
-      }
+      .grid { --grid-columns: 1fr 1fr; }
+      .hello svg { padding-inline: var(--size-fluid-5); }
+      .image { grid-column: 1/-1; justify-self: center; }
    }
 
    @container (max-width: 40rem) {
-      .grid {
-         --grid-columns: 1fr;
-      }
-      .hello svg {
-         padding-inline: var(--size-fluid-3);
-      }
-      .flow {
-         max-inline-size: 45ch;
-      }
+      .grid { --grid-columns: 1fr; }
+      .hello svg { padding-inline: var(--size-fluid-2); }
+      .flow { max-inline-size: 45ch; }
+      .image { max-inline-size: var(--size-13); }
    }
 </style>

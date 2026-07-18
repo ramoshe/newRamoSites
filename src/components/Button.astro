@@ -17,14 +17,39 @@ const { text, link, id, classList, ...rest } = Astro.props;
 </a>
 
 <style>
+   :root {
+      --btn-shadow: var(--accent-pp);
+   }
    .btn {
       background-color: var(--accent);
       color: var(--stone-10);
-      padding: var(--size-3) var(--size-6);
       font-weight: var(--font-weight-7);
-   }
-   .btn-large{
       padding: var(--size-4) var(--size-7);
-      font-size: var(--font-size-fluid-1)
+      font-size: var(--font-size-fluid-1);
+      text-decoration: none;
+      border: 3px solid var(--accent-p);
+      box-shadow: 1px 1px 0px 0px var(--btn-shadow), 2px 2px 0px 0px var(--btn-shadow),
+         3px 3px 0px 0px var(--btn-shadow), 4px 4px 0px 0px var(--btn-shadow),
+         5px 5px 0px 0px var(--btn-shadow), 6px 6px 0px 0px var(--btn-shadow),
+         7px 7px 0px 0px var(--btn-shadow), 8px 8px 0px 0px var(--btn-shadow),
+         9px 9px 0px 0px var(--btn-shadow), 10px 10px 0px 0px var(--btn-shadow),
+         11px 11px 0px 0px var(--btn-shadow), 12px 12px 0px 0px var(--btn-shadow),
+         13px 13px 0px 0px var(--btn-shadow), 14px 14px 0px 0px var(--btn-shadow);
+      position: relative;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
    }
+   .btn:hover,
+   .btn:active {
+      box-shadow: 1px 1px 0px 0px var(--btn-shadow), 2px 2px 0px 0px var(--btn-shadow),
+         3px 3px 0px 0px var(--btn-shadow), 4px 4px 0px 0px var(--btn-shadow),
+         5px 5px 0px 0px var(--btn-shadow), 6px 6px 0px 0px var(--btn-shadow),
+         7px 7px 0px 0px var(--btn-shadow);
+      translate: 5px 5px;
+      transition:
+         translate .16s ease,
+         box-shadow .16s ease,
+         background-color .16s ease;
+      }
 </style>

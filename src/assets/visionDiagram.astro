@@ -2,39 +2,35 @@
 import { Icon } from "astro-icon/components";
 
 const pieces = [
-   {id:  "your site",   x:50,y:50,   icon:"home",       type:"Home",      size:"hub"},
-//-IDENTITY -orange
-   {id:  "portfolio",   x:63,y:31,   icon:"briefcase",  type:"identity",  size:"big"},
-   {id:  "socials",     x:15,y:45,   icon:"share",      type:"identity",  size:"big"},
-   {id:  "about",       x:26,y:65,   icon:"user",       type:"identity",  size:"medium"},
-   {id:  "press",       x:90,y:50,   icon:"news",       type:"identity",  size:"medium"},
-   {id:  "profile",     x:72,y:15,   icon:"id",         type:"identity",  size:"small"},
-   {id:  "reviews",     x:84,y:36,   icon:"stars",      type:"identity",  size:"small"},
-   {id:  "resume",      x:15,y:90,   icon:"file",       type:"identity",  size:"small"},
-//-CREATE -violet
-   {id:  "blog",        x:68,y:69,   icon:"article",    type:"create",    size:"big"},
-   {id:  "gallery",     x:28,y:20,   icon:"photo",      type:"create",    size:"big"},
-   {id:  "video",       x:73,y:42,   icon:"video",      type:"create",    size:"medium"},
-   {id:  "updates",     x:65,y:10,   icon:"bell",       type:"create",    size:"medium"},
-   {id:  "artwork",     x:17,y:77,   icon:"palette",    type:"create",    size:"small"},
-   {id:  "music",       x:80,y:87,   icon:"music",      type:"create",    size:"small"},
-   {id:  "podcast",     x:50,y:95,   icon:"microphone", type:"create",    size:"small"},
-//-CONNECT -pink
-   {id:  "members",     x:30,y:40,   icon:"affiliate",  type:"connect",   size:"big"},
-   {id:  "email",       x:58,y:16,   icon:"mail",       type:"connect",   size:"big"},
-   {id:  "contact",     x:80,y:56,   icon:"send",       type:"connect",   size:"medium"},
-   {id:  "events",      x:42,y:78,   icon:"calendar",   type:"connect",   size:"medium"},
-   {id:  "booking",     x:12,y:53,   icon:"clock",      type:"connect",   size:"small"},
-   {id:  "chat",        x:85,y:68,   icon:"messages",   type:"connect",   size:"small"},
-   {id:  "livestream",  x:92,y:15,   icon:"broadcast",  type:"connect",   size:"small"},
-//-EARN -green
-   {id:  "shop",        x:40,y:18,   icon:"basket",     type:"earn",      size:"big"},
-   {id:  "merch",       x:18,y:30,   icon:"shirt",      type:"earn",      size:"big"},
-   {id:  "premium",     x:75,y:75,   icon:"lock",       type:"earn",      size:"medium"},
-   {id:  "donations",   x:82,y:22,   icon:"heart",      type:"earn",      size:"medium"},
-   {id:  "courses",     x:30,y:78,   icon:"school",     type:"earn",      size:"small"},
-   {id:  "downloads",   x:60,y:87,   icon:"download",   type:"earn",      size:"small"},
-   {id:  "services",    x:88,y:82,   icon:"briefcase",  type:"earn",      size:"small"},
+   {id: "your site", x:50,y:46,  icon: "home",      type: "Home",     size: "hub"},
+   {id: "about",     x:39,y:74,  icon: "user",      type: "identity", size: "medium"},
+   {id: "artwork",   x:22,y:76,  icon: "palette",   type: "create",   size: "small"},
+   {id: "blog",      x:77,y:58,  icon: "article",   type: "create",   size: "big"},
+   {id: "booking",   x:43,y:86,  icon: "clock",     type: "connect",  size: "small"},
+   {id: "chat",      x:69,y:67,  icon: "messages",  type: "connect",  size: "small"},
+   {id: "contact",   x:90,y:54,  icon: "send",      type: "connect",  size: "medium"},
+   {id: "courses",   x:10,y:72,  icon: "school",    type: "earn",     size: "small"},
+   {id: "donations", x:82,y:44,  icon: "heart",     type: "earn",     size: "big"},
+   {id: "downloads", x:68,y:78,  icon: "download",  type: "earn",     size: "small"},
+   {id: "email",     x:78,y:30,  icon: "mail",      type: "connect",  size: "big"},
+   {id: "events",    x:44,y:10,  icon: "calendar",  type: "connect",  size: "medium"},
+   {id: "gallery",   x:20,y:28,  icon: "photo",     type: "create",   size: "big"},
+   {id: "livestream",x:9,y:34,   icon: "capture",   type: "connect",  size: "small"},
+   {id: "members",   x:28,y:64,  icon: "affiliate", type: "connect",  size: "big"},
+   {id: "merch",     x:20,y:44,  icon: "shirt",     type: "earn",     size: "big"},
+   {id: "music",     x:5,y:52,   icon: "headphones",type: "create",   size: "small"},
+   {id: "podcast",   x:52,y:73,  icon: "microphone",type: "create",   size: "medium"},
+   {id: "portfolio", x:56,y:20,  icon: "briefcase", type: "identity", size: "big"},
+   {id: "premium",   x:70,y:17,  icon: "lock",      type: "earn",     size: "medium"},
+   {id: "press kit", x:63,y:92,  icon: "click",     type: "identity", size: "medium"},
+   {id: "profile",   x:17,y:14,  icon: "id",        type: "identity", size: "small"},
+   {id: "resume",    x:85,y:72,  icon: "file",      type: "identity", size: "small"},
+   {id: "reviews",   x:93,y:34,  icon: "stars",     type: "identity", size: "small"},
+   {id: "services",  x:25,y:87,  icon: "briefcase", type: "earn",     size: "medium"},
+   {id: "shop",      x:34,y:22,  icon: "basket",    type: "earn",     size: "big"},
+   {id: "socials",   x:13,y:59,  icon: "sparkles",  type: "identity", size: "big"},
+   {id: "updates",   x:88,y:12,  icon: "bell",      type: "create",   size: "medium"},
+   {id: "video",     x:33,y:5,   icon: "video",     type: "create",   size: "medium"},
 ];
 const sizes:any = {
    hub: { radius:0, opacity:1, iconSize:"7rem", labelSize:"1.5rem", },
@@ -42,7 +38,7 @@ const sizes:any = {
    medium: { radius:.7, opacity:.82, iconSize:"2.5rem", labelSize:".9rem", },
    small: { radius:.5, opacity:.65, iconSize:"2rem", labelSize:".8rem", },
 };
-const network = { hubOffset:10, pieceOffset:5, dotSpacing:2.5, minDots:3,
+const network = { hubOffset:12, pieceOffset:7, dotSpacing:2.5, minDots:3,
    connectionDelay:1.2, dotDelay:.2, };
 
 const pingPong = (count: number) => [...Array.from({length:count},(_,i)=>i),
@@ -80,8 +76,7 @@ const connections = styledPieces.filter(piece=>piece.size!=="hub")
       {connections.map(connection => connection.dots.map(dot => (
       <circle class={`${connection.size} ${dot.direction} ${connection.color}`}
          r={connection.radius} cx={dot.x} cy={dot.y}
-         style={`--delay:${dot.delay}s`}
-      /> )) )}
+         style={`--delay:${dot.delay}s`} /> )) )}
    </svg>
 
    {styledPieces.map(piece=>(
@@ -90,7 +85,7 @@ const connections = styledPieces.filter(piece=>piece.size!=="hub")
          --icon-size:${piece.iconSize}; --label-size:${piece.labelSize};`}
    >
       {piece.size === "hub" && <div class="signal-glow"></div> }
-      <Icon name={`tabler:${piece.icon}`} />
+      <Icon name={`tabler:${piece.icon}-filled`} />
       <span>{piece.id}</span>
    </div> ))}
 
@@ -102,7 +97,6 @@ const connections = styledPieces.filter(piece=>piece.size!=="hub")
       width: 100%;
       aspect-ratio: 1;
       --scale: 1;
-      border: 1px solid var(--page-1);
    }
 
    .piece {
@@ -156,5 +150,6 @@ const connections = styledPieces.filter(piece=>piece.size!=="hub")
    @media (max-width: 600px) {
       .vision-diagram { --scale:.7; }
       .piece { gap:.2rem; }
+      .signal-glow { inset: -100%; }
    }
 </style>

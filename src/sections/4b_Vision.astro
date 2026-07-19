@@ -4,7 +4,7 @@ import VisionDiagram from '../assets/visionDiagram.astro';
 interface Props {
    data: {
       heading: string,
-      body: string,
+      body: string[],
       call: string
    };
 }
@@ -16,7 +16,7 @@ const { data } = Astro.props as Props;
    <div class="container grid">
       <div class="flow copy">
          <h2>{data.heading}</h2>
-         <p>{data.body}</p>
+         {data.body.map(p => <p>{p}</p>)}
          <h3 class="call">{data.call}</h3>
       </div>
       <div class="visual">

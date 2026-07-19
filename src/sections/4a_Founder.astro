@@ -5,7 +5,7 @@ import Hello from '../assets/hiRamo.svg';
 import Portrait from '../assets/portrait.jpg';
 
 interface Props {
-   data: { body: Array<string> };
+   data: { experience: string[], goal: string[] };
 }
 
 const { data } = Astro.props as Props;
@@ -20,13 +20,14 @@ const { data } = Astro.props as Props;
          <div class="image">
             <PhotoHang src={Portrait.src} alt="Ramo's portrait" />
          </div>
-         <div class="flow">
-            <p class="note-font">{data.body[0]}</p>
-            <p>{data.body[1]}</p>
+         <div class="story flow">
+            <!-- {data.experience.map(p => <p>{p}</p>)} -->
+            <p>{data.experience[0]}</p>
+            <p>{data.experience[1]}</p>
          </div>
-         <div class="flow">
-            <p>{data.body[2]}</p>
-            <p class="note-font">{data.body[3]}</p>
+         <div class="story flow">
+            <p>{data.goal[0]} <span class="mark">{data.goal[1]}</span></p>
+            <p>{data.goal[2]} <span class="mark">{data.goal[3]}</span></p>
          </div>
       </div>
    </div>
@@ -45,8 +46,11 @@ const { data } = Astro.props as Props;
       padding-inline: var(--size-3);
       max-inline-size: var(--size-14);
    }
-   .note-font {
-      font-size: var(--font-size-4);
+   .story p {
+      font-size: var(--font-size-1);
+   }
+   .mark {
+      font-size: var(--font-size-3);
       color: var(--brand-t);
       font-weight: bold;
    }

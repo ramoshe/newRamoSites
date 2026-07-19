@@ -2,7 +2,8 @@
 import MainLay from '../layouts/MainLay.astro'
 import Hero from '../sections/1_Hero.astro';
 import Pain from '../sections/2_Pain.astro';
-import Compare from '../sections/3_Compare.astro';
+// import Compare from '../sections/3_Compare.astro';
+import Turning from '../sections/3_Turning.astro';
 import Founder from '../sections/4a_Founder.astro';
 import Vision from '../sections/4b_Vision.astro';
 import Action from '../sections/4c_Actions.astro';
@@ -14,7 +15,8 @@ import json from '../content/landing.json';
 <MainLay title={"new RamoSites coming soon!"} description="A new idea for creators to build an online home for their content and community.">
    <Hero data={json.hero} />
    <Pain data={json.pain} />
-   <Compare data={json.compare} />
+   <!-- <Compare data={json.compare} /> -->
+   <Turning data={json.turning} />
    <Founder data={json.founder} />
    <Vision data={json.vision} />
    <Action data={json.action} />

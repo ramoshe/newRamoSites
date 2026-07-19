@@ -1,97 +1,81 @@
 {
    "hero": {
 		"copy": {
-			"heading": "Build a Home that is YOURS",
-			"attention": "For streamers, artists, musicians, makers, and creators.",
+			"heading": "Build a Home That Is YOURS",
+			"attention": "Made for streamers, artists, musicians, makers, creators, and entrepreneurs.",
 			"subheading": "Stop Renting Your Audience.",
-			"tagline": "Own your content. Build your community. Escape the algorithm goblins."
+			"tagline": "Own your content. Build your community. Grow on your terms. Escape the algorithm goblins."
 		},
 		"video": {
 			"url": "https://youtu.be/_PEv9VeWtmY?si=QY1UZq_pegeSFbN_",
-			"caption": ["Prefer to hear it?", "Here's the 3-minute version ⤵"]
+			"caption": ["Prefer to hear the story?", "Here's the 3-minute version ⤵"]
 		},
 		"cta": {
 			"link": "I'm Interested",
-			"text": "Take the survey or get email updates."
+			"text": "Take the survey or get project updates."
 		}
    },
    "pain": {
-		"visual": {
-			"heading": "You're Everywhere But Home",
-			"body": "Most creators are juggling platforms instead of building a foundation."
-		},
-		"copy": {
-			"heading": "Followers Are Not Ownership",
-			"subheading": [
-				"Algorithms change.",
-				"Platforms disappear.",
-				"Accounts get suspended."
-			],
-			"body": "10,000 followers sounds impressive…but if you can't reach them tomorrow without asking a platform for permission, do you really own that audience?"
-		}
+      "visual": {
+         "heading": "You're Everywhere But Home",
+         "body": "Every new platform promises opportunity. Before long, you're building a dozen little spaces instead of one place that's truly yours."
+      },
+      "copy": {
+         "heading": "Followers Are Not Ownership",
+         "subheading": [
+            "People come for your name.",
+            "Each platform takes its piece.",
+            "You deserve to own your own."
+         ],
+         "body": "10,000 followers sounds impressive... but if you can't reach them tomorrow without asking a platform for permission, how much of that audience is really yours?"
+      }
    },
-   "compare": {
-		"platform": {
-			"title": "Problems",
-			"heading": "Platform Life",
-			"rows": [
-				{
-					"point": "Borrowed",
-					"words": " audience lives on their platform"
-				},
-				{
-					"point": "Scattered",
-					"words": " content increases time and effort"
-				},
-				{
-					"point": "Dependent",
-					"words": " on algorithms to be seen and grow"
-				},
-				{ "point": "Transience", "words": " will always be the game" },
-				{
-					"point": "Their Rules",
-					"words": " can change and wipe out your work"
-				}
-			],
-			"bottom": "You don't own your community. You're just borrowing access to it. And your content is feeding their growth as much as, if not more than yours."
-		},
-		"creator": {
-			"title": "Solutions",
-			"heading": "Creator Home",
-			"rows": [
-				{
-					"point": "Owned",
-					"words": " audience lives on your platform"
-				},
-				{
-					"point": "Organized",
-					"words": " content is easy to find in one place"
-				},
-				{
-					"point": "Available",
-					"words": " so your people can always find you"
-				},
-				{
-					"point": "Permanence",
-					"words": " can be had and built upon"
-				},
-				{ "point": "Your Rules", "words": " enable control and growth" }
-			],
-			"bottom": "The goal isn't replacing social media, its not another profile or link page. It's building something that's truly yours no matter which way the wind blows."
-		}
+   "turning": {
+      "heading": "Put Your Work on Solid Ground",
+      "work": {
+         "subheading": "Yes, it takes work.",
+         "body": "Building something you own takes work. There's no getting around that.",
+         "highlight": [ "But here's the thing...", "you're already doing lots of work." ],
+         "list": [
+            "Making videos and content.",
+            "Posting to all the places.",
+            "Live streaming regularly.",
+            "Completing commissions.",
+            "Creating all day and night."
+         ]
+      },
+      "foundation": {
+         "problem": {
+            "subheading": "So where is all that effort going?",
+            "body": "Right now, much of it stays scattered across platforms that decide who sees it, how long it lasts, and what happens when the rules change. You're helping build their platforms without building much that's permanently yours."
+         },
+         "solution": {
+            "subheading": "A foundation works differently.",
+            "body": "Every hour you invest has somewhere to stay. Every new project, page, or idea builds on the foundation you've already laid. Your work doesn't disappear—it accumulates."
+         }
+      },
+
+      "call": "Make today's work the foundation for tomorrow."
    },
    "founder": {
-		"body": [
-			"I'm a creator too.",
-			"I've spent years watching creative people pour energy into platforms they don't control.",
-			"All the tools I've tried are limiting, expensive, complicated, or simply not designed for creators' needs.",
-			"So I'm building something different."
-		]
+		"experience": [
+         "I've spent years building websites for projects and clients, and found that most platforms and tools are for mass market. They don't fit the needs of creators.",
+         "Let's just say I've had enough hours (days, weeks, months) of work end with rage-closed browser tabs to know there's gotta be a better way."
+      ],
+      "goal": [
+         "So I'm aiming my design and development skills toward one goal:",
+         "removing the barriers that make owning a website feel so complicated.",
+         "Creators need more than another profile to maintain. We deserve a home that's built to grow with us.",
+         "That's what RamoSites is all about."
+      ]
    },
    "vision": {
-		"heading": "I'm Building Something for Creators Like Us",
-		"body": "I'm researching a better way for creators to build websites that are flexible, affordable, and actually feel like our own.",
-		"call": "If that sounds interesting, I'd love your input."
+      "heading": "Build for the Creator You're Becoming",
+      "body": [
+         "Your website shouldn't just meet today's needs. It should have room to grow into tomorrow's.",
+         "Whether that's a portfolio, a shop, memberships, courses, livestreams, or something you haven't even dreamed up yet, everything belongs under one roof."
+      ],
+      "call": "This idea is still growing. I'd love for you to help shape it."
    },
    "action": {
 		"survey": {
@@ -101,6 +85,32 @@
 		"email": {
 			"buttonText": "Email",
 			"description": "Get updates as things develop and first access"
+		}
+   },
+   "compare": {
+		"platform": {
+			"title": "Problems",
+			"heading": "Platform Life",
+			"rows": [
+				{"point": "Borrowed", "words": "audience lives on their platform"},
+				{"point": "Scattered", "words": "content increases time and effort"},
+				{"point": "Dependent", "words": "on algorithms to be seen and grow"},
+				{"point": "Transience", "words": "will always be the game"},
+				{"point": "Their Rules", "words": "can change and wipe out your work"}
+			],
+			"bottom": "You don't own your community. You're just borrowing access to it. And your content is feeding their growth as much as, if not more than yours."
+		},
+		"creator": {
+			"title": "Solutions",
+			"heading": "Creator Home",
+			"rows": [
+				{"point": "Owned", "words": "audience lives on your platform"},
+				{"point": "Organized", "words": "content is easy to find in one place"},
+				{"point": "Available", "words": "so your people can always find you"},
+				{"point": "Permanence", "words": "can be had and built upon"},
+				{"point": "Your Rules", "words": "enable control and growth"}
+			],
+			"bottom": "The goal isn't replacing social media, its not another profile or link page. It's building something that's truly yours no matter which way the wind blows."
 		}
    }
 }

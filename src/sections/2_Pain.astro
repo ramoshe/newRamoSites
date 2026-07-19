@@ -3,7 +3,7 @@ import SocialVisual from '../assets/socialVisual.astro';
 
 type splitSection = {
    heading: string,
-   subheading?: Array<string>,
+   subheading?: string[],
    body: string
 }
 interface Props {
@@ -26,7 +26,6 @@ const { data } = Astro.props as Props;
       </div>
       <div class="visual | stack">
          <p>{data.visual.body}</p>
-         <!-- <div class="social-visual placeholder"></div> -->
          <SocialVisual />
          <h3>{data.visual.heading}</h3>
       </div>
@@ -58,8 +57,8 @@ const { data } = Astro.props as Props;
       .grid {
          --grid-columns: 1fr;
       }
-      .copy {
-         text-align: center;
+      .visual p {
+         text-align: left;
       }
    }
 </style>

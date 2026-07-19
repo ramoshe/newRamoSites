@@ -34,7 +34,7 @@
       "heading": "Put Your Work on Solid Ground",
       "work": {
          "subheading": "Yes, it takes work.",
-         "body": "Building something you own takes work. There's no getting around that.",
+         "body": "Building something you own takes time and energy. There's no getting around that.",
          "highlight": [ "But here's the thing...", "you're already doing the work." ],
          "list": [
             "Making videos.",
@@ -75,7 +75,10 @@
          "Your website shouldn't just meet today's needs. It should have room for tomorrow's goals.",
          "Whether that's a portfolio, a shop, memberships, courses, livestreams, or something you haven't even dreamed up yet, everything belongs under one roof."
       ],
-      "call": "This idea is still growing. I'd love for you to help shape it."
+      "call": [
+         "This idea is still growing.",
+         "I'd love for you to help shape it."
+      ]
    },
    "action": {
 		"survey": {

@@ -5,7 +5,7 @@ interface Props {
    data: {
       heading: string,
       body: string[],
-      call: string
+      call: string[]
    };
 }
 
@@ -14,10 +14,10 @@ const { data } = Astro.props as Props;
 
 <section id="vision" class="section">
    <div class="container grid">
-      <div class="flow copy">
+      <div class="stack copy">
          <h2>{data.heading}</h2>
-         {data.body.map(p => <p>{p}</p>)}
-         <h3 class="call">{data.call}</h3>
+         <div class="body flow">{data.body.map(p => <p>{p}</p>)}</div>
+         {data.call.map(text => <h3 class="call">{text}</h3>)}
       </div>
       <div class="visual">
          <VisionDiagram />
@@ -26,8 +26,11 @@ const { data } = Astro.props as Props;
 </section>
 
 <style>
+   .section {
+      container-type: inline-size;
+   }
    .grid {
-      --grid-columns:1fr 1.5fr;
+      --grid-columns: minmax(22rem, 26rem) 1fr;
       grid-template-areas:"copy visual";
       align-items:center;
    }
@@ -39,11 +42,11 @@ const { data } = Astro.props as Props;
       text-wrap:balance;
    }
    .call {
-      margin-block-start: var(--size-9);
+      text-wrap:unset;
    }
 
-   @media (max-width: 600px) {
-      .section { text-align: center; }
+   @container (max-width: 60rem) {
+      .stack { text-align: center; }
       .grid {
          --grid-columns: 1fr;
          grid-template-areas:
@@ -54,8 +57,8 @@ const { data } = Astro.props as Props;
       }
       .copy { display: contents; }
       h2 { grid-area: heading; }
-      p { grid-area: body; }
+      .body { grid-area: body; }
       .visual { grid-area: visual; }
-      .call { grid-area: call; margin-block-start:var(--size-4); }
+      /* .call { grid-area: call; } */
    }
 </style>
